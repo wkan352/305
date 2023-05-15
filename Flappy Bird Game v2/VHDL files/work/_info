@@ -10,13 +10,13 @@ z2
 cModel Technology
 Z0 dH:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files
 Ebird
-Z1 w1684190887
+Z1 w1684193315
 Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z4 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
 Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z6 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 9
+!i122 21
 R0
 Z7 8H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/bird_final.vhd
 Z8 FH:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/bird_final.vhd
@@ -26,9 +26,9 @@ VRodFz0CaEbGI6^BAJmV003
 !s100 jIMkoI5oi6;kA;V03KnoK3
 Z9 OE;C;2020.2;71
 32
-Z10 !s110 1684191305
+Z10 !s110 1684193538
 !i10b 1
-Z11 !s108 1684191305.000000
+Z11 !s108 1684193538.000000
 Z12 !s90 -reportprogress|300|-work|work|H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/bird_final.vhd|
 Z13 !s107 H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/bird_final.vhd|
 !i113 0
@@ -40,12 +40,12 @@ R3
 R4
 R5
 R6
-DEx4 work 4 bird 0 22 RodFz0CaEbGI6^BAJmV003
-!i122 9
+Z16 DEx4 work 4 bird 0 22 RodFz0CaEbGI6^BAJmV003
+!i122 21
 l22
-L13 56
-VZdbl]UEFhQb?`eQzZ3jS21
-!s100 ;gA7gH3XU6:ib5kNXZPF10
+Z17 L13 56
+VaIUGiV4LebJo=?A1Ojm0T0
+!s100 PEDNK;HAP>X1SQd`:e;7U2
 R9
 32
 R10
@@ -56,28 +56,69 @@ R13
 !i113 0
 R14
 R15
+Egame_controller
+Z18 w1684193526
+R5
+R6
+!i122 19
+R0
+Z19 8H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_controller.vhd
+Z20 FH:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_controller.vhd
+l0
+L4 1
+VPdc1>H6Ig3VHcYOGDY`Mj0
+!s100 d[4MUeUU7UnWdg7a:8G9E1
+R9
+32
+Z21 !s110 1684193531
+!i10b 1
+Z22 !s108 1684193531.000000
+Z23 !s90 -reportprogress|300|-work|work|H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_controller.vhd|
+Z24 !s107 H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_controller.vhd|
+!i113 0
+R14
+R15
+Abehav
+R5
+R6
+DEx4 work 15 game_controller 0 22 Pdc1>H6Ig3VHcYOGDY`Mj0
+!i122 19
+l14
+L10 87
+VNIfXha<J_5Lbd@VH6^FnD3
+!s100 fZfPXMYBFHeYSKgNYJeH73
+R9
+32
+R21
+!i10b 1
+R22
+R23
+R24
+!i113 0
+R14
+R15
 Epipe
-Z16 w1684191560
+Z25 w1684193301
 R2
 R3
 R4
 R5
 R6
-!i122 14
+!i122 20
 R0
-Z17 8H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd
-Z18 FH:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd
+Z26 8H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd
+Z27 FH:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd
 l0
 L6 1
 VQkg_Hl9fW7J2c:SeTA4UL1
 !s100 8nfGlCCiLnJXoi1Wel;RR1
 R9
 32
-Z19 !s110 1684191565
+Z28 !s110 1684193534
 !i10b 1
-Z20 !s108 1684191565.000000
-Z21 !s90 -reportprogress|300|-work|work|H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd|
-Z22 !s107 H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd|
+Z29 !s108 1684193534.000000
+Z30 !s90 -reportprogress|300|-work|work|H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd|
+Z31 !s107 H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd|
 !i113 0
 R14
 R15
@@ -88,18 +129,18 @@ R4
 R5
 R6
 DEx4 work 4 pipe 0 22 Qkg_Hl9fW7J2c:SeTA4UL1
-!i122 14
+!i122 20
 l29
 L16 51
-Ve;8K@ZSNiRMF1IzZYhRS]1
-!s100 PO2<[M<ifmXeN8Pd2Pl9o3
+VTIWi7Uhlh=Oki6g]fLWG63
+!s100 KgAnh7Wnko2fVJEK8dX^k0
 R9
 32
-R19
+R28
 !i10b 1
-R20
-R21
-R22
+R29
+R30
+R31
 !i113 0
 R14
 R15

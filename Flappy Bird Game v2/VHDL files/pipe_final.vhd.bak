@@ -24,7 +24,7 @@ architecture behav of pipe is
 	Signal col : integer;
 	
 	Signal pipe_speed : integer := 1;
-	Signal pipe_end_x : integer := pipe_end;
+	Signal pipe_end_x : integer := pipe_end
 
 begin
 

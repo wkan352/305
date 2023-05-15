@@ -33,34 +33,31 @@ MOVE_BIRD: PROCESS(VERT_SYNC)
 		VARIABLE GRAVITY : INTEGER := 0;
 		VARIABLE BIRD_MOTION : INTEGER := 0;
 	BEGIN
-		IF(RISING_EDGE(VERT_SYNC)) THEN 
-			IF(STATE = "100" OR STATE = "101") THEN
-
-				IF(LEFT_MOUSE ='1' AND CLICKED_ALREADY = '0') THEN
-					BIRD_MOTION := -12;
-					GRAVITY := 1;
+		IF(RISING_EDGE(VERT_SYNC)) THEN
+			IF(LEFT_MOUSE ='1' AND CLICKED_ALREADY = '0') THEN
+				BIRD_MOTION := -12;
+				GRAVITY := 1;
 				
-				ELSE
-					BIRD_MOTION := BIRD_MOTION + GRAVITY;
+			ELSE
+				BIRD_MOTION := BIRD_MOTION + GRAVITY;
 				
-				END IF;
+			END IF;
 			
-				-- Remove this portion of the code and added it to the collision component
-				IF((BIRD_Y <= (40 + BIRD_MOTION)) OR (BIRD_Y >= (438 - BIRD_SIZE))) THEN
-					BIRD_Y <= 239;
-					BIRD_MOTION := 0;
-					GRAVITY := 0;
-				ELSE --------------------------------------------------------
-					BIRD_Y <= BIRD_Y + BIRD_MOTION;
-				END IF;
+			-- Remove this portion of the code and added it to the collision component
+			IF((BIRD_Y <= (40 + BIRD_MOTION)) OR (BIRD_Y >= (438 - BIRD_SIZE))) THEN
+				BIRD_Y <= 239;
+				BIRD_MOTION := 0;
+				GRAVITY := 0;
+			ELSE --------------------------------------------------------
+				BIRD_Y <= BIRD_Y + BIRD_MOTION;
+			END IF;
 
-				IF LEFT_MOUSE ='1' THEN
-					CLICKED_ALREADY :='1';
+			IF LEFT_MOUSE ='1' THEN
+				CLICKED_ALREADY :='1';
 				
-				ELSE
-					CLICKED_ALREADY := '0';
+			ELSE
+				CLICKED_ALREADY := '0';
 				
-				END IF;
 			END IF;
 		END IF;
 	END PROCESS MOVE_BIRD;

@@ -1,0 +1,101 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dH:/Documents/305 Project/1interim_demo/VHDL FILES
+Eback_display
+Z1 w1683671251
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1
+R0
+Z6 8H:/Documents/305 Project/1interim_demo/VHDL FILES/background_display.vhd
+Z7 FH:/Documents/305 Project/1interim_demo/VHDL FILES/background_display.vhd
+l0
+L7 1
+VA`4`Jl8D[m;P_BacJ:X1n0
+!s100 Rem7N0Ya:WeYfJZmUH?2n2
+Z8 OE;C;2020.2;71
+32
+Z9 !s110 1683671256
+!i10b 1
+Z10 !s108 1683671256.000000
+Z11 !s90 -reportprogress|300|-work|work|H:/Documents/305 Project/1interim_demo/VHDL FILES/background_display.vhd|
+Z12 !s107 H:/Documents/305 Project/1interim_demo/VHDL FILES/background_display.vhd|
+!i113 0
+Z13 o-work work
+Z14 tExplicit 1 CvgOpt 0
+Abehaviour
+R2
+R3
+R4
+R5
+DEx4 work 12 back_display 0 22 A`4`Jl8D[m;P_BacJ:X1n0
+!i122 1
+l31
+L12 34
+VFBGdL5<dB4l<KhMND@2Cz0
+!s100 NAkO0`^[^22mTRQ=OW2FZ3
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
+Etext_display
+Z15 w1683673663
+R2
+R3
+R4
+R5
+!i122 12
+R0
+Z16 8H:/Documents/305 Project/1interim_demo/VHDL FILES/text_display.vhd
+Z17 FH:/Documents/305 Project/1interim_demo/VHDL FILES/text_display.vhd
+l0
+L6 1
+VHkNX>Z=N^VClmYnWbObfM1
+!s100 Ji8QJko63<5O>ISzU@G1M1
+R8
+32
+Z18 !s110 1683673665
+!i10b 1
+Z19 !s108 1683673665.000000
+Z20 !s90 -reportprogress|300|-work|work|H:/Documents/305 Project/1interim_demo/VHDL FILES/text_display.vhd|
+!s107 H:/Documents/305 Project/1interim_demo/VHDL FILES/text_display.vhd|
+!i113 0
+R13
+R14
+Abehav
+R2
+R3
+R4
+R5
+DEx4 work 12 text_display 0 22 HkNX>Z=N^VClmYnWbObfM1
+!i122 12
+l31
+L12 29
+VMl;ZQin<9d3HZ:oKGH6n63
+!s100 ;6B>9zN89z308kR53I1^n0
+R8
+32
+R18
+!i10b 1
+R19
+R20
+Z21 !s107 H:/Documents/305 Project/1interim_demo/VHDL FILES/text_display.vhd|
+!i113 0
+R13
+R14

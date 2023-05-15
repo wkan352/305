@@ -1,0 +1,49 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "red_out",
+					"strict" : false
+				},
+				{
+					"name" : "green_out",
+					"strict" : false
+				},
+				{
+					"name" : "blue_out",
+					"strict" : false
+				},
+				{
+					"name" : "horiz_sync_out",
+					"strict" : false
+				},
+				{
+					"name" : "vert_sync_out",
+					"strict" : false
+				},
+				{
+					"name" : "right_button",
+					"strict" : false
+				},
+				{
+					"name" : "mouse_data",
+					"strict" : false
+				},
+				{
+					"name" : "mouse_clk",
+					"strict" : false
+				},
+				{
+					"name" : "pb1",
+					"strict" : false
+				},
+				{
+					"name" : "pb2",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

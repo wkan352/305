@@ -1,0 +1,25 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "left_button",
+					"strict" : false
+				},
+				{
+					"name" : "right_button",
+					"strict" : false
+				},
+				{
+					"name" : "mouse_data",
+					"strict" : false
+				},
+				{
+					"name" : "mouse_clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

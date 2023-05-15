@@ -1,0 +1,73 @@
+library IEEE;
+use  IEEE.STD_LOGIC_1164.all;
+use  IEEE.STD_LOGIC_ARITH.all;
+use  IEEE.STD_LOGIC_UNSIGNED.all;
+
+
+ENTITY bird IS
+	PORT
+		(left_mouse, vert_sync	: IN std_logic;
+		 red_in, green_in, blue_in : in std_logic_vector(3 downto 0);
+          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+		  red, green, blue 			: OUT std_logic_vector(3 downto 0));	
+END bird;
+
+architecture behavior of bird is
+	signal is_bird 				: std_logic;
+	Constant bird_size 			: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(20, 10);
+	Constant bird_X 				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(100, 10);
+	SIGNAL bird_y				: SIGNED(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(239,10);
+	Signal bird_motion 		: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(0, 10);  -- Velocity
+	
+	
+BEGIN           
+	is_bird <= '1' when ( (pixel_row >= bird_y) and (pixel_row <= bird_y + bird_size) and (pixel_column <= bird_x) and (pixel_column >= bird_x - bird_size) ) else '0';				
+					
+					
+	-- Colours for pixel data on video signal
+	Red <=  "1111" when is_bird = '1' else red_in;
+	Green <= "1111" when is_bird = '1' else green_in;
+	Blue <=  "0000" when is_bird = '1' else blue_in;
+	
+	-- CONVERSIONS
+	PIXEL_ROW <= 	UNSIGNED(PIXEL_ROW);
+	pixel_column <= UNSIGNED(pixel_column);
+	
+Move_Bird: process (vert_sync) 
+VARIABLE clicked_already : std_logic := '0';
+variable gravity : std_logic_vector(9 DOWNTO 0):= CONV_STD_LOGIC_VECTOR(0, 10); 
+
+begin
+	-- Move bird once every vertical sync
+	if(rising_edge(vert_sync)) then
+		if (left_mouse='1' and clicked_already = '0') then
+			bird_motion <= - CONV_STD_LOGIC_VECTOR(12, 10); -- Set to negative 15 so it goes up first
+			
+		elsif ( bird_y <= CONV_STD_LOGIC_VECTOR(0, 10) or bird_y >= (CONV_STD_LOGIC_VECTOR(439, 10) - bird_size) ) then
+			bird_y <= CONV_STD_LOGIC_VECTOR(239, 10);
+			bird_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+			gravity := CONV_STD_LOGIC_VECTOR(0, 10);
+		
+		else
+			
+			bird_motion <= bird_motion + gravity;
+			
+		end if;
+		
+		bird_y <= bird_y + bird_motion;
+		
+		if (left_mouse ='1') then
+			
+			clicked_already := '1';
+			gravity := CONV_STD_LOGIC_VECTOR(1, 10);
+		
+		else 
+			clicked_already := '0';
+		
+		end if;
+		
+	end if;
+end process Move_Bird;
+
+END behavior;
+

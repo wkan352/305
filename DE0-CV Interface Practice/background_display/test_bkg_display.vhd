@@ -1,0 +1,32 @@
+library IEEE;
+use  IEEE.STD_LOGIC_1164.all;
+use  IEEE.STD_LOGIC_ARITH.all;
+use  IEEE.STD_LOGIC_UNSIGNED.all;
+
+-- Testbench for the back_display
+entity test_back_display is 
+end entity test_back_display; 
+ 
+architecture my_test of test_back_display is  
+
+    signal t_pixel_row, t_pixel_column : STD_LOGIC_VECTOR(9 DOWNTO 0); 
+    signal t_red, t_green, t_blue : STD_LOGIC; 
+
+    component back_display is
+	port (	pixel_row, pixel_column: in STD_LOGIC_VECTOR(9 DOWNTO 0);
+		red, green, blue : out STD_LOGIC);
+    end component;
+
+begin 
+     DUT: back_display port map (t_pixel_row, t_pixel_column, t_red, t_green, t_blue); 
+  
+     -- Initialization process (code that executes only once). 
+     init: process 
+     begin  
+       -- pixel pulses 
+	t_pixel_row <= "0000000000", "0111110100" after 30 ns, "1001011000" after 55 ns;
+	t_pixel_column <= "0000100111", "0000101000" after 15 ns, "0000101101" after 30 ns, "0110110111" after 45 ns, "0110111000" after 50 ns, "0111011111" after 65 ns;
+
+	wait for 75 ns;
+     end process init;    
+end architecture my_test; 

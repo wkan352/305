@@ -1,0 +1,45 @@
+library IEEE;
+use  IEEE.STD_LOGIC_1164.all;
+use  IEEE.STD_LOGIC_ARITH.all;
+use  IEEE.STD_LOGIC_UNSIGNED.all;
+
+
+entity back_display is
+	port (	pixel_row, pixel_column: in STD_LOGIC_VECTOR(9 DOWNTO 0);
+		is_text : in STD_LOGIC;
+		red, green, blue : out STD_LOGIC_VECTOR(2 DOWNTO 0));
+end entity back_display;
+
+architecture behaviour of back_display is
+
+	Signal is_bar: boolean; -- True when the pixels corresponds to the top bar
+	Signal is_sky: boolean; -- True when the pixels corresponds to the sky (Area for the bird to fly in)
+	Signal is_ground: boolean; -- True when the pixels corresponds to the ground/grass
+	Signal color: std_logic_vector(8 downto 0);
+
+	Constant bar_color : std_logic_vector(8 downto 0) := CONV_STD_LOGIC_VECTOR(0, 9); -- BLACK
+	Constant sky_color : std_logic_vector(8 downto 0) := CONV_STD_LOGIC_VECTOR(63, 9); -- CYAN
+	Constant ground_color : std_logic_vector(8 downto 0) := CONV_STD_LOGIC_VECTOR(448, 9); -- RED
+
+	Constant text_color : std_logic_vector(8 downto 0) := CONV_STD_LOGIC_VECTOR(504, 9);
+
+	Constant bar_end_row: std_logic_vector(9 downto 0) := "0000100111";
+	Constant sky_end_row: std_logic_vector(9 downto 0) := "0110110111";
+
+begin
+	is_bar <= (pixel_row <= bar_end_row);
+	is_sky <= ((pixel_row > bar_end_row) and (pixel_row <= sky_end_row));
+	is_ground <= (pixel_row > sky_end_row);
+
+	color <= bar_color when (is_bar=true and is_text='0') else
+		 sky_color when (is_sky=true and is_text='0') else
+		 ground_color when (is_ground =true and is_text='0') else
+		 text_color;
+
+	red <= color(8 DOWNTO 6);
+	green <= color(5 DOWNTO 3);
+	blue <= color(2 DOWNTO 0);
+
+
+end architecture behaviour;
+

@@ -1,0 +1,10 @@
+Depth = 512;
+Width = 8;
+Address_radix = oct;
+Data_radix = bin;
+% Character Generator ROM Data %
+Content
+  Begin
+777  : 00000000 ; %             %
+
+End;

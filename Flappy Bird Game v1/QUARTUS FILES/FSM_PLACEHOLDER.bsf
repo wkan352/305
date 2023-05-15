@@ -1,0 +1,99 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 264 192)
+	(text "FSM_PLACEHOLDER" (rect 5 0 107 12)(font "Arial" ))
+	(text "inst" (rect 8 160 20 172)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "VERT_SYNC" (rect 0 0 62 12)(font "Arial" ))
+		(text "VERT_SYNC" (rect 21 27 83 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "LEFT_MOUSE" (rect 0 0 66 12)(font "Arial" ))
+		(text "LEFT_MOUSE" (rect 21 43 87 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 248 32)
+		(output)
+		(text "PIPE1_END[31..0]" (rect 0 0 75 12)(font "Arial" ))
+		(text "PIPE1_END[31..0]" (rect 152 27 227 39)(font "Arial" ))
+		(line (pt 248 32)(pt 232 32)(line_width 3))
+	)
+	(port
+		(pt 248 48)
+		(output)
+		(text "PIPE1_GAP[31..0]" (rect 0 0 75 12)(font "Arial" ))
+		(text "PIPE1_GAP[31..0]" (rect 152 43 227 55)(font "Arial" ))
+		(line (pt 248 48)(pt 232 48)(line_width 3))
+	)
+	(port
+		(pt 248 64)
+		(output)
+		(text "PIPE2_END[31..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "PIPE2_END[31..0]" (rect 151 59 227 71)(font "Arial" ))
+		(line (pt 248 64)(pt 232 64)(line_width 3))
+	)
+	(port
+		(pt 248 80)
+		(output)
+		(text "PIPE2_GAP[31..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "PIPE2_GAP[31..0]" (rect 151 75 227 87)(font "Arial" ))
+		(line (pt 248 80)(pt 232 80)(line_width 3))
+	)
+	(port
+		(pt 248 96)
+		(output)
+		(text "PIPE3_END[31..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "PIPE3_END[31..0]" (rect 151 91 227 103)(font "Arial" ))
+		(line (pt 248 96)(pt 232 96)(line_width 3))
+	)
+	(port
+		(pt 248 112)
+		(output)
+		(text "PIPE3_GAP[31..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "PIPE3_GAP[31..0]" (rect 151 107 227 119)(font "Arial" ))
+		(line (pt 248 112)(pt 232 112)(line_width 3))
+	)
+	(port
+		(pt 248 128)
+		(output)
+		(text "BIRD_X[31..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "BIRD_X[31..0]" (rect 168 123 227 135)(font "Arial" ))
+		(line (pt 248 128)(pt 232 128)(line_width 3))
+	)
+	(port
+		(pt 248 144)
+		(output)
+		(text "BIRD_Y[31..0]" (rect 0 0 60 12)(font "Arial" ))
+		(text "BIRD_Y[31..0]" (rect 167 139 227 151)(font "Arial" ))
+		(line (pt 248 144)(pt 232 144)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 232 160)(line_width 1))
+	)
+)

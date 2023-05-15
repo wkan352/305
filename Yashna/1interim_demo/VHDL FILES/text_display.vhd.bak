@@ -1,0 +1,42 @@
+library IEEE;
+use  IEEE.STD_LOGIC_1164.all;
+use  IEEE.STD_LOGIC_ARITH.all;
+use  IEEE.STD_LOGIC_UNSIGNED.all;
+
+entity text_display is
+	port(	show_text : in std_logic;
+	red_in, green_in, blue_in : in std_logic_vector(3 downto 0);
+		pixel_row,pixel_col : in std_logic_vector(9 downto 0);
+		red_out, green_out, blue_out : out std_logic_vector(3 downto 0));
+end entity text_display;
+
+architecture behav of text_display is
+
+	type alphaArray is array (0 to 7, 0 to 55) of std_logic;
+	signal welcome_alphaArray : alphaArray := (
+	"01100011011111100110000000111100001111000110001101111110",
+	"01100011011111100110000001100110011001100111011101100000",
+	"01100011011000000110000001100000011001100111111101100000",
+	"01101011011110000110000001100000011001100110101101111000",
+	"01111111011000000110000001100000011001100110001101100000",
+	"01110111011000000110000001100110011001100110001101100000",
+	"01100011011111100111111000111100001111000110001101111110",
+	"00000000000000000000000000000000000000000000000000000000");
+	
+	Constant text_start_X: std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(291, 10);
+	Constant text_end_X : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(347, 10);
+	
+	Constant text_start_Y: std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(235, 10);
+	Constant text_end_Y: std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(243, 10);	
+	signal is_text : boolean;
+	
+begin
+	is_text <= ((pixel_row >= text_start_Y) and (pixel_row < text_end_Y) and
+			(pixel_col >= text_start_X) and (pixel_col < text_end_X) and 
+			(welcome_alphaArray(CONV_INTEGER(unsigned(pixel_row - text_start_Y)) , CONV_INTEGER(unsigned(pixel_col - text_start_X))) = '1') and show_text = '1');
+	
+	red_out <= "1111" when (is_text =true) else red_in;
+	green_out <= "1111" when (is_text =true) else green_in;
+	blue_out <= "1111" when (is_text =true) else blue_in;
+	
+end architecture behav;

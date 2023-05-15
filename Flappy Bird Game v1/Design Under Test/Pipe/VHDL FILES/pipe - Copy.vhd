@@ -1,0 +1,51 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.all;
+USE  IEEE.STD_LOGIC_SIGNED.all;
+USE IEEE.NUMERIC_STD.ALL;
+
+entity pipe is
+	port (	start, vert_sync : in std_logic;
+		red_in, green_in, blue_in : in std_logic_vector(3 downto 0);
+		pixel_row, pixel_col : in std_logic_vector(9 downto 0);
+		red,green,blue : out std_logic_vector(3 downto 0));
+end entity pipe;
+
+architecture behav of pipe is
+	Constant gap_height : integer := 120;
+	Constant pipe_width : integer := 60;
+	Constant pipe_height : integer := 400;
+	Constant pipe_start_y : integer := 40;
+	Constant pipe_end_y : integer := 439;
+	Signal is_pipe : std_logic;
+
+	Constant gap_ypos : integer := 200;
+	Signal pipe_end_x : integer := 40;
+	
+	Signal row : integer;
+	Signal col : integer;
+ 	
+begin
+	-- Conversions
+	row <= to_integer(unsigned(pixel_row));
+	col <= to_integer(unsigned(pixel_col));
+
+	is_pipe <= '1' when (  ((row >= pipe_start_y and row <= gap_ypos) or 
+				(row >= gap_height + gap_ypos and row <= pipe_end_y)) and
+				(col <= pipe_end_x and col >= pipe_end_x - pipe_width)) else '0';
+	
+	red <= "0000" when is_pipe ='1' else red_in;
+	green <= "1111" when is_pipe ='1' else green_in;
+	blue <= "0000" when is_pipe ='1' else blue_in;
+
+	process(vert_sync)
+	begin
+	if rising_edge(vert_sync) then
+		if(pipe_end_x <= 0) then
+			pipe_end_x <= 699;
+		else
+			pipe_end_x <= pipe_end_x - 1;
+		
+		end if;
+	end if;
+	end process;
+end architecture behav;

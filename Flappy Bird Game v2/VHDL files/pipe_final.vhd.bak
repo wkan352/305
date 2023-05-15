@@ -4,13 +4,11 @@ USE  IEEE.STD_LOGIC_SIGNED.all;
 USE IEEE.NUMERIC_STD.ALL;
 
 entity pipe is
-	generic	(pipe_end : integer := 620; 
-		 gap_ypos : integer := 130);
 	port ( 	vert_sync : std_logic;
-		state: in std_logic_vector(2 downto 0);	
+		state, pipe_end_index, gap_ypos_index : in std_logic_vector(2 downto 0);	
 		score : in integer;
 		pixel_row, pixel_col : in std_logic_vector(9 downto 0);
-		is_pipe : out std_logic);
+		is_pipe, is_pipe_passed : out std_logic);
 end entity pipe;
 
 architecture behav of pipe is
@@ -24,13 +22,21 @@ architecture behav of pipe is
 	Signal col : integer;
 	
 	Signal pipe_speed : integer := 1;
-	Signal pipe_end_x : integer := pipe_end;
+	
+	type valid_pos is array (0 to 7) of integer;
+	signal gap_array : valid_pos := (165, 300, 120, 165, 300, 120, 165, 300);
+	signal pipe_endpos_array : valid_pos := (200, 400, 620, 300, 500, 600, 250, 450);
+
+	Signal pipe_end_x : integer;
+	Signal gap_ypos : integer;
 
 begin
 
 	-- Conversions
 	row <= to_integer(unsigned(pixel_row));
 	col <= to_integer(unsigned(pixel_col));
+
+	gap_ypos <= gap_array(to_integer(unsigned(gap_ypos_index)));
 
 	is_pipe <= '1' when (  ((row >= pipe_start_y and row <= gap_ypos) or 
 				(row >= gap_height + gap_ypos and row <= pipe_end_y)) and
@@ -39,7 +45,7 @@ begin
 	
 	UPDATE_PIPE_SPEED: PROCESS(SCORE)
 	BEGIN
-		IF(STATE = "101") THEN
+		IF(STATE = "100") THEN
 			IF SCORE >= 8 THEN
 				PIPE_SPEED <= 2;
 			ELSIF SCORE >= 14 THEN
@@ -52,15 +58,17 @@ begin
 	END PROCESS UPDATE_PIPE_SPEED;
 	MOVE_PIPES: PROCESS(VERT_SYNC)
 	BEGIN
-		IF (RISING_EDGE(VERT_SYNC) AND (STATE = "100" OR STATE = "101")) THEN
+		IF (RISING_EDGE(VERT_SYNC) AND (STATE = "011" OR STATE = "100")) THEN
 			
 			IF(pipe_end_x <= 0) THEN
 				pipe_end_x <= 699;
+				is_pipe_passed <= '1';
 			ELSE
 				pipe_end_x <= pipe_end_x - pipe_speed;
+				is_pipe_passed <= '0';
 			END IF;
-
-
+		ELSE
+			pipe_end_x <= pipe_endpos_array(to_integer(unsigned(pipe_end_index)));
 		END IF;
 	END PROCESS MOVE_PIPES;
 end architecture behav;

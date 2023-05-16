@@ -21,8 +21,8 @@ ARCHITECTURE BEHAV OF COLOR_PIXEL IS
 	Constant grass_color : std_logic_vector(11 downto 0) := CONV_STD_LOGIC_VECTOR(2520, 12); -- HEX: 9D8
 	Constant ground_color : std_logic_vector(11 downto 0) := CONV_STD_LOGIC_VECTOR(3545, 12); -- HEX: DD9
 	
-	Constant bird_color : std_logic_vector(11 downto 0) := CONV_STD_LOGIC_VECTOR(1236, 12); -- HEX: FDF
-	Constant pipe_color : std_logic_vector(11 downto 0) := CONV_STD_LOGIC_VECTOR(2990, 12); -- HEX: BAE
+	Constant bird_color : std_logic_vector(11 downto 0) := CONV_STD_LOGIC_VECTOR(4080, 12); --  yellow
+	Constant pipe_color : std_logic_vector(11 downto 0) := CONV_STD_LOGIC_VECTOR(240, 12); --  green
 
 	Constant bar_end_row: std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(39, 10);
 	Constant sky_end_row: std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(439, 10);

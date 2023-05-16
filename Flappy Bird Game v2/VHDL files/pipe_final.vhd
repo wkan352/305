@@ -53,6 +53,8 @@ begin
 			ELSE
 				PIPE_SPEED <= 4;
 			END IF;
+		ELSE
+			PIPE_SPEED <= 1;
 		END IF;	
 
 	END PROCESS UPDATE_PIPE_SPEED;

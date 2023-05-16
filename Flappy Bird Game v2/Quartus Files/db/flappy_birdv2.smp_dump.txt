@@ -1,0 +1,18 @@
+
+State Machine - |flappy_birdv2|MOUSE:inst4|mouse_state
+Name mouse_state.INPUT_PACKETS mouse_state.WAIT_CMD_ACK mouse_state.WAIT_OUTPUT_READY mouse_state.LOAD_COMMAND2 mouse_state.LOAD_COMMAND mouse_state.INHIBIT_TRANS 
+mouse_state.INHIBIT_TRANS 0 0 0 0 0 0 
+mouse_state.LOAD_COMMAND 0 0 0 0 1 1 
+mouse_state.LOAD_COMMAND2 0 0 0 1 0 1 
+mouse_state.WAIT_OUTPUT_READY 0 0 1 0 0 1 
+mouse_state.WAIT_CMD_ACK 0 1 0 0 0 1 
+mouse_state.INPUT_PACKETS 1 0 0 0 0 1 
+
+State Machine - |flappy_birdv2|GAME_CONTROLLER:inst8|STATE
+Name STATE.S5 STATE.S4 STATE.S3 STATE.S2 STATE.S1 STATE.S0 
+STATE.S0 0 0 0 0 0 0 
+STATE.S1 0 0 0 0 1 1 
+STATE.S2 0 0 0 1 0 1 
+STATE.S3 0 0 1 0 0 1 
+STATE.S4 0 1 0 0 0 1 
+STATE.S5 1 0 0 0 0 1 

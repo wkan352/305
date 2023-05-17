@@ -28,6 +28,7 @@ ARCHITECTURE BEHAV OF COLOR_PIXEL IS
 	Constant sky_end_row: std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(439, 10);
 	Constant grass_end_row: std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(459, 10);
 
+
 BEGIN
 	is_bar <= (pixel_row <= bar_end_row);
 	is_sky <= ((pixel_row > bar_end_row) and (pixel_row <= sky_end_row));

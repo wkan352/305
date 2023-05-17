@@ -56,7 +56,7 @@ BEGIN
 			WHEN S1 =>
 					if (RIGHT_MOUSE = '1') then
 						next_state <= S0;
-					ELSIF (PUSH_BTN = '1') THEN
+					ELSIF (PUSH_BTN = '0') THEN
 						NEXT_STATE <= S3;
 					ELSE
 						NEXT_STATE <= S1;
@@ -64,7 +64,7 @@ BEGIN
 			WHEN S2 =>
 					if (RIGHT_MOUSE = '1') then
 						next_state <= S0;
-					ELSIF (PUSH_BTN = '1') THEN
+					ELSIF (PUSH_BTN = '0') THEN
 						NEXT_STATE <= S4;
 					ELSE
 						NEXT_STATE <= S2;

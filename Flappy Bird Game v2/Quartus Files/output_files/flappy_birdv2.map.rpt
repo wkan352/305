@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappy_birdv2
-Tue May 16 13:49:34 2023
+Wed May 17 20:37:46 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -49,14 +49,14 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue May 16 13:49:34 2023           ;
+; Analysis & Synthesis Status     ; Successful - Wed May 17 20:37:46 2023           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappy_birdv2                                   ;
 ; Top-level Entity Name           ; flappy_birdv2                                   ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 357                                             ;
-; Total pins                      ; 19                                              ;
+; Total registers                 ; 383                                             ;
+; Total pins                      ; 48                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 0                                               ;
 ; Total DSP Blocks                ; 0                                               ;
@@ -161,11 +161,11 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
@@ -174,29 +174,33 @@ refer to the applicable agreement for further details.
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                ;
-+------------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path   ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                    ; Library ;
-+------------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------+---------+
-; ../VHDL files/vga_sync_4bit.vhd    ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd      ;         ;
-; ../VHDL files/pipe_final.vhd       ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd         ;         ;
-; ../VHDL files/mouse.vhd            ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd              ;         ;
-; ../VHDL files/LFSR_placeholder.vhd ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/LFSR_placeholder.vhd   ;         ;
-; ../VHDL files/game_metrics.vhd     ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_metrics.vhd       ;         ;
-; ../VHDL files/game_controller.vhd  ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_controller.vhd    ;         ;
-; ../VHDL files/color_pixel.vhd      ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/color_pixel.vhd        ;         ;
-; ../VHDL files/collision.vhd        ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/collision.vhd          ;         ;
-; ../VHDL files/bird_final.vhd       ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/bird_final.vhd         ;         ;
-; DE0_CV_golden_top.v                ; yes             ; User Verilog HDL File              ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/DE0_CV_golden_top.v ;         ;
-; pll/pll.vhd                        ; yes             ; User Wizard-Generated File         ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/pll/pll.vhd         ; pll     ;
-; pll/pll/pll_0002.v                 ; yes             ; User Verilog HDL File              ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/pll/pll/pll_0002.v  ; pll     ;
-; flappy_birdv2.bdf                  ; yes             ; User Block Diagram/Schematic File  ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/flappy_birdv2.bdf   ;         ;
-; altera_pll.v                       ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                  ;         ;
-+------------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                      ;
++-------------------------------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                      ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                       ; Library ;
++-------------------------------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------+---------+
+; ../VHDL files/random_number_checker.vhd               ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/random_number_checker.vhd ;         ;
+; ../../Project Interim Demo/VHDL FILES/BCD_to_7Seg.vhd ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Project Interim Demo/VHDL FILES/BCD_to_7Seg.vhd          ;         ;
+; ../VHDL files/vga_sync_4bit.vhd                       ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd         ;         ;
+; ../VHDL files/pipe_final.vhd                          ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd            ;         ;
+; ../VHDL files/mouse.vhd                               ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd                 ;         ;
+; ../VHDL files/game_metrics.vhd                        ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_metrics.vhd          ;         ;
+; ../VHDL files/game_controller.vhd                     ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_controller.vhd       ;         ;
+; ../VHDL files/color_pixel.vhd                         ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/color_pixel.vhd           ;         ;
+; ../VHDL files/collision.vhd                           ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/collision.vhd             ;         ;
+; ../VHDL files/bird_final.vhd                          ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/bird_final.vhd            ;         ;
+; DE0_CV_golden_top.v                                   ; yes             ; User Verilog HDL File              ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/DE0_CV_golden_top.v    ;         ;
+; pll/pll.vhd                                           ; yes             ; User Wizard-Generated File         ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/pll/pll.vhd            ; pll     ;
+; pll/pll/pll_0002.v                                    ; yes             ; User Verilog HDL File              ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/pll/pll/pll_0002.v     ; pll     ;
+; flappy_birdv2.bdf                                     ; yes             ; User Block Diagram/Schematic File  ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/flappy_birdv2.bdf      ;         ;
+; ../vhdl files/lfsr_placeholder.vhd                    ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/vhdl files/lfsr_placeholder.vhd      ;         ;
+; altera_pll.v                                          ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                     ;         ;
++-------------------------------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------+---------+
 
 
 +----------------------------------------------------------------------------+
@@ -204,18 +208,18 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+------------------------------+
 ; Resource                                    ; Usage                        ;
 +---------------------------------------------+------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 482                          ;
+; Estimate of Logic utilization (ALMs needed) ; 526                          ;
 ;                                             ;                              ;
-; Combinational ALUT usage for logic          ; 830                          ;
+; Combinational ALUT usage for logic          ; 889                          ;
 ;     -- 7 input functions                    ; 1                            ;
-;     -- 6 input functions                    ; 127                          ;
-;     -- 5 input functions                    ; 76                           ;
-;     -- 4 input functions                    ; 89                           ;
-;     -- <=3 input functions                  ; 537                          ;
+;     -- 6 input functions                    ; 155                          ;
+;     -- 5 input functions                    ; 84                           ;
+;     -- 4 input functions                    ; 111                          ;
+;     -- <=3 input functions                  ; 538                          ;
 ;                                             ;                              ;
-; Dedicated logic registers                   ; 357                          ;
+; Dedicated logic registers                   ; 383                          ;
 ;                                             ;                              ;
-; I/O pins                                    ; 19                           ;
+; I/O pins                                    ; 48                           ;
 ;                                             ;                              ;
 ; Total DSP Blocks                            ; 0                            ;
 ;                                             ;                              ;
@@ -223,9 +227,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                            ;
 ;                                             ;                              ;
 ; Maximum fan-out node                        ; VGA_SYNC:inst5|vert_sync_out ;
-; Maximum fan-out                             ; 236                          ;
-; Total fan-out                               ; 3894                         ;
-; Average fan-out                             ; 3.17                         ;
+; Maximum fan-out                             ; 235                          ;
+; Total fan-out                               ; 4397                         ;
+; Average fan-out                             ; 3.21                         ;
 +---------------------------------------------+------------------------------+
 
 
@@ -234,17 +238,25 @@ refer to the applicable agreement for further details.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                               ; Entity Name     ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+-----------------+--------------+
-; |flappy_birdv2                     ; 830 (0)             ; 357 (0)                   ; 0                 ; 0          ; 19   ; 0            ; |flappy_birdv2                                                    ; flappy_birdv2   ; work         ;
-;    |BIRD:inst11|                   ; 236 (236)           ; 66 (66)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BIRD:inst11                                        ; BIRD            ; work         ;
-;    |COLLISION:inst10|              ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|COLLISION:inst10                                   ; COLLISION       ; work         ;
-;    |COLOR_PIXEL:inst9|             ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|COLOR_PIXEL:inst9                                  ; COLOR_PIXEL     ; work         ;
-;    |GAME_CONTROLLER:inst8|         ; 9 (9)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|GAME_CONTROLLER:inst8                              ; GAME_CONTROLLER ; work         ;
-;    |GAME_METRICS:inst7|            ; 74 (74)             ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|GAME_METRICS:inst7                                 ; GAME_METRICS    ; work         ;
+; |flappy_birdv2                     ; 889 (0)             ; 383 (0)                   ; 0                 ; 0          ; 48   ; 0            ; |flappy_birdv2                                                    ; flappy_birdv2   ; work         ;
+;    |BCD_to_SevenSeg:inst29|        ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BCD_to_SevenSeg:inst29                             ; BCD_to_SevenSeg ; work         ;
+;    |BCD_to_SevenSeg:inst30|        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BCD_to_SevenSeg:inst30                             ; BCD_to_SevenSeg ; work         ;
+;    |BCD_to_SevenSeg:inst31|        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BCD_to_SevenSeg:inst31                             ; BCD_to_SevenSeg ; work         ;
+;    |BCD_to_SevenSeg:inst32|        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BCD_to_SevenSeg:inst32                             ; BCD_to_SevenSeg ; work         ;
+;    |BIRD:inst11|                   ; 229 (229)           ; 66 (66)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BIRD:inst11                                        ; BIRD            ; work         ;
+;    |CHECKER:inst27|                ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|CHECKER:inst27                                     ; CHECKER         ; work         ;
+;    |COLLISION:inst10|              ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|COLLISION:inst10                                   ; COLLISION       ; work         ;
+;    |COLOR_PIXEL:inst9|             ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|COLOR_PIXEL:inst9                                  ; COLOR_PIXEL     ; work         ;
+;    |GAME_CONTROLLER:inst8|         ; 11 (11)             ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|GAME_CONTROLLER:inst8                              ; GAME_CONTROLLER ; work         ;
+;    |GAME_METRICS:inst7|            ; 76 (76)             ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|GAME_METRICS:inst7                                 ; GAME_METRICS    ; work         ;
 ;    |MOUSE:inst4|                   ; 47 (47)             ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|MOUSE:inst4                                        ; MOUSE           ; work         ;
-;    |VGA_SYNC:inst5|                ; 50 (50)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|VGA_SYNC:inst5                                     ; VGA_SYNC        ; work         ;
-;    |pipe:inst1|                    ; 143 (143)           ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst1                                         ; pipe            ; work         ;
+;    |VGA_SYNC:inst5|                ; 51 (51)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|VGA_SYNC:inst5                                     ; VGA_SYNC        ; work         ;
+;    |lfsr:inst23|                   ; 6 (6)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|lfsr:inst23                                        ; lfsr            ; work         ;
+;    |lfsr:inst24|                   ; 6 (6)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|lfsr:inst24                                        ; lfsr            ; work         ;
+;    |lfsr:inst26|                   ; 6 (6)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|lfsr:inst26                                        ; lfsr            ; work         ;
+;    |pipe:inst1|                    ; 136 (136)           ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst1                                         ; pipe            ; work         ;
 ;    |pipe:inst2|                    ; 132 (132)           ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst2                                         ; pipe            ; work         ;
-;    |pipe:inst3|                    ; 132 (132)           ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst3                                         ; pipe            ; work         ;
+;    |pipe:inst3|                    ; 142 (142)           ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst3                                         ; pipe            ; work         ;
 ;    |pll:inst|                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pll:inst                                           ; pll             ; pll          ;
 ;       |pll_0002:pll_inst|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pll:inst|pll_0002:pll_inst                         ; pll_0002        ; pll          ;
 ;          |altera_pll:altera_pll_i| ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll      ; work         ;
@@ -314,12 +326,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 357   ;
-; Number of registers using Synchronous Clear  ; 138   ;
+; Total registers                              ; 383   ;
+; Number of registers using Synchronous Clear  ; 210   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 16    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 208   ;
+; Number of registers using Clock Enable       ; 304   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -329,49 +341,69 @@ Encoding Type:  One-Hot
 +-----------------------------------------+---------+
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
+; lfsr:inst23|r_lfsr[6]                   ; 10      ;
+; lfsr:inst23|r_lfsr[8]                   ; 9       ;
+; lfsr:inst24|r_lfsr[2]                   ; 9       ;
+; lfsr:inst24|r_lfsr[1]                   ; 10      ;
+; lfsr:inst26|r_lfsr[3]                   ; 10      ;
+; lfsr:inst26|r_lfsr[4]                   ; 10      ;
 ; pipe:inst1|pipe_end_x[0]                ; 4       ;
 ; pipe:inst1|pipe_end_x[31]               ; 4       ;
-; pipe:inst2|pipe_end_x[0]                ; 4       ;
-; pipe:inst2|pipe_end_x[31]               ; 4       ;
+; lfsr:inst23|r_lfsr[3]                   ; 14      ;
+; lfsr:inst23|r_lfsr[4]                   ; 16      ;
 ; pipe:inst3|pipe_end_x[0]                ; 4       ;
 ; pipe:inst3|pipe_end_x[31]               ; 4       ;
+; lfsr:inst26|r_lfsr[1]                   ; 15      ;
+; lfsr:inst26|r_lfsr[2]                   ; 14      ;
+; pipe:inst2|pipe_end_x[0]                ; 4       ;
+; pipe:inst2|pipe_end_x[31]               ; 4       ;
+; lfsr:inst24|r_lfsr[6]                   ; 15      ;
+; lfsr:inst24|r_lfsr[8]                   ; 15      ;
 ; BIRD:inst11|BIRD_Y[2]                   ; 6       ;
 ; BIRD:inst11|BIRD_Y[0]                   ; 4       ;
 ; BIRD:inst11|BIRD_Y[5]                   ; 7       ;
 ; BIRD:inst11|BIRD_Y[4]                   ; 5       ;
 ; BIRD:inst11|BIRD_Y[7]                   ; 7       ;
 ; BIRD:inst11|BIRD_Y[6]                   ; 7       ;
-; GAME_METRICS:inst7|LIVES[0]             ; 4       ;
-; GAME_METRICS:inst7|LIVES[1]             ; 4       ;
+; GAME_METRICS:inst7|LIVES[0]             ; 2       ;
+; GAME_METRICS:inst7|LIVES[1]             ; 2       ;
+; lfsr:inst24|r_lfsr[3]                   ; 1       ;
+; lfsr:inst26|r_lfsr[6]                   ; 1       ;
+; lfsr:inst23|r_lfsr[1]                   ; 1       ;
+; lfsr:inst24|r_lfsr[4]                   ; 1       ;
+; lfsr:inst23|r_lfsr[2]                   ; 1       ;
+; lfsr:inst26|r_lfsr[8]                   ; 1       ;
 ; MOUSE:inst4|send_char                   ; 3       ;
 ; MOUSE:inst4|SHIFTOUT[3]                 ; 1       ;
 ; MOUSE:inst4|SHIFTOUT[5]                 ; 1       ;
 ; MOUSE:inst4|SHIFTOUT[6]                 ; 1       ;
 ; MOUSE:inst4|SHIFTOUT[7]                 ; 1       ;
 ; MOUSE:inst4|SHIFTOUT[8]                 ; 1       ;
-; Total number of inverted registers = 20 ;         ;
+; Total number of inverted registers = 38 ;         ;
 +-----------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappy_birdv2|VGA_SYNC:inst5|blue_out[3]  ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |flappy_birdv2|GAME_METRICS:inst7|LIVES[4] ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_birdv2|VGA_SYNC:inst5|v_count[1]   ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |flappy_birdv2|GAME_METRICS:inst7|SCORE[3] ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |flappy_birdv2|pipe:inst1|pipe_end_x[24]   ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |flappy_birdv2|pipe:inst2|pipe_end_x[15]   ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |flappy_birdv2|pipe:inst3|pipe_end_x[19]   ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappy_birdv2|VGA_SYNC:inst5|red_out[0]   ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_birdv2|GAME_METRICS:inst7|LIVES[1] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_birdv2|pipe:inst1|pipe_end_x[31]   ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_birdv2|pipe:inst2|pipe_end_x[0]    ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_birdv2|pipe:inst3|pipe_end_x[0]    ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |flappy_birdv2|pipe:inst1|pipe_speed[0]    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappy_birdv2|VGA_SYNC:inst5|blue_out[1]             ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |flappy_birdv2|GAME_METRICS:inst7|LIVES[3]            ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_birdv2|VGA_SYNC:inst5|v_count[6]              ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |flappy_birdv2|GAME_METRICS:inst7|SCORE[26]           ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappy_birdv2|VGA_SYNC:inst5|blue_out[2]             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_birdv2|GAME_METRICS:inst7|LIVES[0]            ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |flappy_birdv2|pipe:inst1|pipe_speed[2]               ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst29|SevenSeg_out[4] ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst30|SevenSeg_out[4] ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst31|SevenSeg_out[6] ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst32|SevenSeg_out[6] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst29|SevenSeg_out[3] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst30|SevenSeg_out[3] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst31|SevenSeg_out[5] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst32|SevenSeg_out[5] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------+
@@ -626,36 +658,37 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 357                         ;
+; arriav_ff             ; 383                         ;
 ;     CLR               ; 1                           ;
-;     ENA               ; 65                          ;
+;     ENA               ; 89                          ;
 ;     ENA CLR           ; 15                          ;
-;     ENA SCLR          ; 128                         ;
+;     ENA SCLR          ; 200                         ;
 ;     SCLR              ; 10                          ;
-;     plain             ; 138                         ;
+;     plain             ; 68                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 830                         ;
-;     arith             ; 402                         ;
-;         0 data inputs ; 3                           ;
-;         1 data inputs ; 324                         ;
-;         2 data inputs ; 6                           ;
-;         3 data inputs ; 27                          ;
+; arriav_lcell_comb     ; 894                         ;
+;     arith             ; 429                         ;
+;         0 data inputs ; 6                           ;
+;         1 data inputs ; 330                         ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 42                          ;
 ;         4 data inputs ; 33                          ;
 ;         5 data inputs ; 9                           ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 427                         ;
-;         1 data inputs ; 5                           ;
-;         2 data inputs ; 52                          ;
-;         3 data inputs ; 120                         ;
-;         4 data inputs ; 56                          ;
-;         5 data inputs ; 67                          ;
-;         6 data inputs ; 127                         ;
-; boundary_port         ; 19                          ;
+;     normal            ; 464                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 24                          ;
+;         2 data inputs ; 95                          ;
+;         3 data inputs ; 36                          ;
+;         4 data inputs ; 78                          ;
+;         5 data inputs ; 75                          ;
+;         6 data inputs ; 155                         ;
+; boundary_port         ; 48                          ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 8.80                        ;
-; Average LUT depth     ; 5.19                        ;
+; Average LUT depth     ; 5.31                        ;
 +-----------------------+-----------------------------+
 
 
@@ -664,7 +697,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -674,11 +707,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Tue May 16 13:49:20 2023
+    Info: Processing started: Wed May 17 20:37:30 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappy_birdv2 -c flappy_birdv2
-Info (125069): Default assignment values were changed in the current version of the Quartus Prime software -- changes to default assignments values are contained in file c:/intelfpga/18.1/quartus/bin64/assignment_defaults.qdf
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/flappy bird game v2/vhdl files/random_number_checker.vhd
+    Info (12022): Found design unit 1: CHECKER-BEHAV File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/random_number_checker.vhd Line: 9
+    Info (12023): Found entity 1: CHECKER File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/random_number_checker.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/project interim demo/vhdl files/bcd_to_7seg.vhd
+    Info (12022): Found design unit 1: BCD_to_SevenSeg-arc1 File: H:/Documents/305 REPO/305/Project Interim Demo/VHDL FILES/BCD_to_7Seg.vhd Line: 12
+    Info (12023): Found entity 1: BCD_to_SevenSeg File: H:/Documents/305 REPO/305/Project Interim Demo/VHDL FILES/BCD_to_7Seg.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/flappy bird game v2/vhdl files/vga_sync_4bit.vhd
     Info (12022): Found design unit 1: VGA_SYNC-a File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 16
     Info (12023): Found entity 1: VGA_SYNC File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 7
@@ -688,9 +726,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file /docume
 Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/flappy bird game v2/vhdl files/mouse.vhd
     Info (12022): Found design unit 1: MOUSE-behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd Line: 18
     Info (12023): Found entity 1: MOUSE File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/flappy bird game v2/vhdl files/lfsr_placeholder.vhd
-    Info (12022): Found design unit 1: LFSR_PLACEHOLDER-BEHAV File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/LFSR_placeholder.vhd Line: 13
-    Info (12023): Found entity 1: LFSR_PLACEHOLDER File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/LFSR_placeholder.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/flappy bird game v2/vhdl files/game_metrics.vhd
     Info (12022): Found design unit 1: GAME_METRICS-BEHAV File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_metrics.vhd Line: 13
     Info (12023): Found entity 1: GAME_METRICS File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_metrics.vhd Line: 6
@@ -715,7 +750,20 @@ Info (12021): Found 1 design units, including 1 entities, in source file pll/pll
     Info (12023): Found entity 1: pll_0002 File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/pll/pll/pll_0002.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file flappy_birdv2.bdf
     Info (12023): Found entity 1: flappy_birdv2
+Info (12021): Found 2 design units, including 1 entities, in source file rom/pipe_rom.vhd
+    Info (12022): Found design unit 1: pipe_rom-SYN File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/pipe_rom.vhd Line: 52
+    Info (12023): Found entity 1: pipe_rom File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/pipe_rom.vhd Line: 42
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/flappy bird game v2/vhdl files/lfsr_placeholder.vhd
+    Info (12022): Found design unit 1: lfsr-behaviour File: H:/Documents/305 REPO/305/Flappy Bird Game v2/vhdl files/lfsr_placeholder.vhd Line: 10
+    Info (12023): Found entity 1: lfsr File: H:/Documents/305 REPO/305/Flappy Bird Game v2/vhdl files/lfsr_placeholder.vhd Line: 5
 Info (12127): Elaborating entity "flappy_birdv2" for the top level hierarchy
+Warning (275089): Not all bits in bus "pipe_random2[8..0]" are used
+Warning (275080): Converted elements in bus name "pipe_random2" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "pipe_random2[8..6]" to "pipe_random28..6"
+    Warning (275081): Converted element name(s) from "pipe_random2[2..0]" to "pipe_random22..0"
+    Warning (275081): Converted element name(s) from "pipe_random2[2..0]" to "pipe_random22..0"
+    Warning (275081): Converted element name(s) from "pipe_random2[8..6]" to "pipe_random28..6"
+    Warning (275081): Converted element name(s) from "pipe_random2[2..0]" to "pipe_random22..0"
 Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:inst5"
 Info (12128): Elaborating entity "pll" for hierarchy "pll:inst"
 Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:inst|pll_0002:pll_inst" File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/pll/pll.vhd Line: 32
@@ -787,9 +835,10 @@ Info (12128): Elaborating entity "COLOR_PIXEL" for hierarchy "COLOR_PIXEL:inst9"
 Info (12128): Elaborating entity "pipe" for hierarchy "pipe:inst1"
 Warning (10540): VHDL Signal Declaration warning at pipe_final.vhd(27): used explicit default value for signal "gap_array" because signal was never assigned a value File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 27
 Warning (10540): VHDL Signal Declaration warning at pipe_final.vhd(28): used explicit default value for signal "pipe_endpos_array" because signal was never assigned a value File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 28
-Warning (10492): VHDL Process Statement warning at pipe_final.vhd(48): signal "state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 48
-Warning (10492): VHDL Process Statement warning at pipe_final.vhd(63): signal "state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 63
-Info (12128): Elaborating entity "LFSR_PLACEHOLDER" for hierarchy "LFSR_PLACEHOLDER:inst6"
+Warning (10492): VHDL Process Statement warning at pipe_final.vhd(52): signal "state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 52
+Warning (10492): VHDL Process Statement warning at pipe_final.vhd(67): signal "state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 67
+Info (12128): Elaborating entity "CHECKER" for hierarchy "CHECKER:inst27"
+Info (12128): Elaborating entity "lfsr" for hierarchy "lfsr:inst23"
 Info (12128): Elaborating entity "GAME_METRICS" for hierarchy "GAME_METRICS:inst7"
 Info (12128): Elaborating entity "GAME_CONTROLLER" for hierarchy "GAME_CONTROLLER:inst8"
 Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:inst4"
@@ -800,24 +849,27 @@ Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHARO
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd Line: 157
 Info (12128): Elaborating entity "COLLISION" for hierarchy "COLLISION:inst10"
 Info (12128): Elaborating entity "BIRD" for hierarchy "BIRD:inst11"
+Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:inst29"
 Info (13000): Registers with preset signals will power-up high File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[1]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Info (21057): Implemented 906 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1003 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 14 output pins
+    Info (21059): Implemented 43 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 886 logic cells
+    Info (21061): Implemented 954 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 4882 megabytes
-    Info: Processing ended: Tue May 16 13:49:34 2023
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:18
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 4898 megabytes
+    Info: Processing ended: Wed May 17 20:37:46 2023
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:19
 
 

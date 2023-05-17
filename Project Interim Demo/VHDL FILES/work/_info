@@ -55,26 +55,26 @@ R12
 R13
 R14
 Etext_display
-Z15 w1683673663
+Z15 w1684188395
 R2
 R3
 R4
 R5
-!i122 12
-R0
-Z16 8H:/Documents/305 Project/1interim_demo/VHDL FILES/text_display.vhd
-Z17 FH:/Documents/305 Project/1interim_demo/VHDL FILES/text_display.vhd
+!i122 13
+Z16 dH:/Documents/305 REPO/305/Project Interim Demo/VHDL FILES
+Z17 8H:/Documents/305 REPO/305/Project Interim Demo/VHDL FILES/text_display.vhd
+Z18 FH:/Documents/305 REPO/305/Project Interim Demo/VHDL FILES/text_display.vhd
 l0
 L6 1
-VHkNX>Z=N^VClmYnWbObfM1
-!s100 Ji8QJko63<5O>ISzU@G1M1
+VON2QK58anSRYimZco]UF22
+!s100 Y_iIfAb7lV@gAKZEZWJAK0
 R8
 32
-Z18 !s110 1683673665
+Z19 !s110 1684284336
 !i10b 1
-Z19 !s108 1683673665.000000
-Z20 !s90 -reportprogress|300|-work|work|H:/Documents/305 Project/1interim_demo/VHDL FILES/text_display.vhd|
-!s107 H:/Documents/305 Project/1interim_demo/VHDL FILES/text_display.vhd|
+Z20 !s108 1684284336.000000
+Z21 !s90 -reportprogress|300|-work|work|H:/Documents/305 REPO/305/Project Interim Demo/VHDL FILES/text_display.vhd|
+!s107 H:/Documents/305 REPO/305/Project Interim Demo/VHDL FILES/text_display.vhd|
 !i113 0
 R13
 R14
@@ -83,19 +83,19 @@ R2
 R3
 R4
 R5
-DEx4 work 12 text_display 0 22 HkNX>Z=N^VClmYnWbObfM1
-!i122 12
-l31
-L12 29
-VMl;ZQin<9d3HZ:oKGH6n63
-!s100 ;6B>9zN89z308kR53I1^n0
+DEx4 work 12 text_display 0 22 ON2QK58anSRYimZco]UF22
+!i122 13
+l73
+L13 70
+VPh@`;]lg=ZU4=R^77a`7k2
+!s100 VH<AcaQL258PQ`aJ86H1L1
 R8
 32
-R18
-!i10b 1
 R19
+!i10b 1
 R20
-Z21 !s107 H:/Documents/305 Project/1interim_demo/VHDL FILES/text_display.vhd|
+R21
+Z22 !s107 H:/Documents/305 REPO/305/Project Interim Demo/VHDL FILES/text_display.vhd|
 !i113 0
 R13
 R14

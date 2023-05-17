@@ -12,7 +12,7 @@ entity pipe is
 end entity pipe;
 
 architecture behav of pipe is
-	Constant gap_height : integer := 120;
+	Constant gap_height : integer := 150;
 	Constant pipe_width : integer := 60;
 	Constant pipe_height : integer := 400;
 	Constant pipe_start_y : integer := 40;
@@ -21,15 +21,15 @@ architecture behav of pipe is
 	Signal row : integer;
 	Signal col : integer;
 	
-	Signal pipe_speed : integer := 1;
+	Signal pipe_speed : integer := 6;
 	
 	type valid_pos is array (0 to 7) of integer;
-	signal gap_array : valid_pos := (165, 300, 120, 165, 300, 120, 165, 300);
-	signal pipe_endpos_array : valid_pos := (200, 400, 620, 300, 500, 600, 250, 450);
+	signal gap_array : valid_pos := (189, 247, 228, 207, 193, 289, 198, 221);
+	signal pipe_endpos_array : valid_pos := (215, 315, 415, 515, 615, 715, 815, 915);
 
 	Signal pipe_end_x : integer;
 	Signal gap_ypos : integer;
-
+	
 begin
 
 	-- Conversions
@@ -54,7 +54,7 @@ begin
 				PIPE_SPEED <= 4;
 			END IF;
 		ELSE
-			PIPE_SPEED <= 1;
+			PIPE_SPEED <= 6;
 		END IF;	
 
 	END PROCESS UPDATE_PIPE_SPEED;
@@ -63,14 +63,16 @@ begin
 		IF (RISING_EDGE(VERT_SYNC) AND (STATE = "011" OR STATE = "100")) THEN
 			
 			IF(pipe_end_x <= 0) THEN
-				pipe_end_x <= 699;
 				is_pipe_passed <= '1';
+				pipe_end_x <=(699 - pipe_endpos_array(to_integer(unsigned(pipe_end_index)))) + pipe_endpos_array(to_integer(unsigned(pipe_end_index)));
 			ELSE
 				pipe_end_x <= pipe_end_x - pipe_speed;
 				is_pipe_passed <= '0';
 			END IF;
+			
 		ELSIF RISING_EDGE(VERT_SYNC) THEN
 			pipe_end_x <= pipe_endpos_array(to_integer(unsigned(pipe_end_index)));
 		END IF;
 	END PROCESS MOVE_PIPES;
+
 end architecture behav;

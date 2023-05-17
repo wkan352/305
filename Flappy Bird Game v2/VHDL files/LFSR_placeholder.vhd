@@ -1,24 +1,32 @@
 library IEEE;
 use  IEEE.STD_LOGIC_1164.all;
 
-ENTITY LFSR_PLACEHOLDER IS
-	PORT(	PIPE1_GAP, PIPE2_GAP, PIPE3_GAP, PIPE1_ENDX, 
-		PIPE2_ENDX, PIPE3_ENDX : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)	
-		
-		);
 
+entity lfsr is 
+port (pipe_passed : in  std_logic;     
+      PIPE_RANDOM 		    : OUT STD_LOGIC_VECTOR(8 DOWNTO 0));
+end entity lfsr;
 
-END ENTITY LFSR_PLACEHOLDER;
+architecture behaviour of lfsr is  
 
-ARCHITECTURE BEHAV OF LFSR_PLACEHOLDER IS
+  signal r_lfsr                 : std_logic_vector (8 downto 0) := "101011110";
 
-BEGIN
-	PIPE1_GAP <= "000";
-	PIPE2_GAP <= "001";
-	PIPE3_GAP <= "010";
+begin  
+PIPE_RANDOM  <= r_lfsr(8 downto 0);
 
-	PIPE1_ENDX <= "000";
-	PIPE2_ENDX <= "001";
-	PIPE3_ENDX <= "010";
+p_lfsr : process (pipe_passed) begin 
 
-END ARCHITECTURE BEHAV;
+  if (pipe_passed='1') then 
+      r_lfsr(8) <= r_lfsr(0);
+      r_lfsr(7) <= r_lfsr(8) xor r_lfsr(0);
+      r_lfsr(6) <= r_lfsr(7);
+      r_lfsr(5) <= r_lfsr(6);
+      r_lfsr(4) <= r_lfsr(5);
+      r_lfsr(3) <= r_lfsr(4);
+      r_lfsr(2) <= r_lfsr(3);
+      r_lfsr(1) <= r_lfsr(2);
+      r_lfsr(0) <= r_lfsr(1);
+    end if; 
+end process p_lfsr; 
+
+end architecture behaviour;

@@ -59,7 +59,7 @@ begin
 
 	gap_ypos <= gap_array(to_integer(unsigned(gap_ypos_index)));
 	
-	rom_address <= std_logic_vector(to_unsigned((row - pipe_start_y), rom_address'length)) when is_pipe='1';
+	rom_address <= std_logic_vector(to_unsigned((row - pipe_start_y), rom_address'length)) when is_pipe='1' else "000000000";
 
 	is_pipe <= '1' when (  ((row >= pipe_start_y and row <= gap_ypos) or 
 				(row >= gap_height + gap_ypos and row <= pipe_end_y)) and

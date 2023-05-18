@@ -1,5 +1,5 @@
 Flow report for flappy_birdv2
-Thu May 18 15:24:25 2023
+Thu May 18 15:33:52 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -37,24 +37,29 @@ refer to the applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Flow Summary                                                                  ;
-+-----------------------------+-------------------------------------------------+
-; Flow Status                 ; Flow Failed - Thu May 18 15:24:25 2023          ;
-; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
-; Revision Name               ; flappy_birdv2                                   ;
-; Top-level Entity Name       ; flappy_birdv2                                   ;
-; Family                      ; Cyclone V                                       ;
-; Device                      ; 5CEBA4F23C7                                     ;
-; Timing Models               ; Final                                           ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                       ;
-; Total registers             ; N/A until Partition Merge                       ;
-; Total pins                  ; N/A until Partition Merge                       ;
-; Total virtual pins          ; N/A until Partition Merge                       ;
-; Total block memory bits     ; N/A until Partition Merge                       ;
-; Total PLLs                  ; N/A until Partition Merge                       ;
-; Total DLLs                  ; N/A until Partition Merge                       ;
-+-----------------------------+-------------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Flow Summary                                                                      ;
++---------------------------------+-------------------------------------------------+
+; Flow Status                     ; Successful - Thu May 18 15:33:52 2023           ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Revision Name                   ; flappy_birdv2                                   ;
+; Top-level Entity Name           ; flappy_birdv2                                   ;
+; Family                          ; Cyclone V                                       ;
+; Device                          ; 5CEBA4F23C7                                     ;
+; Timing Models                   ; Final                                           ;
+; Logic utilization (in ALMs)     ; 754 / 18,480 ( 4 % )                            ;
+; Total registers                 ; 401                                             ;
+; Total pins                      ; 47 / 224 ( 21 % )                               ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 162,000 / 3,153,920 ( 5 % )                     ;
+; Total DSP Blocks                ; 0 / 66 ( 0 % )                                  ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 1 / 4 ( 25 % )                                  ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                                   ;
++---------------------------------+-------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -62,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/18/2023 15:24:16 ;
+; Start date & time ; 05/18/2023 15:31:15 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; flappy_birdv2       ;
 +-------------------+---------------------+
@@ -73,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 251053327268930.168438025500356        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 251053327268930.168438067504160        ; --            ; --          ; --         ;
 ; FITTER_EFFORT                       ; Standard Fit                           ; Auto Fit      ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
@@ -104,8 +109,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4880 MB             ; 00:00:17                           ;
-; Total                ; 00:00:10     ; --                      ; --                  ; 00:00:17                           ;
+; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 4930 MB             ; 00:00:21                           ;
+; Fitter               ; 00:01:16     ; 1.1                     ; 6676 MB             ; 00:02:55                           ;
+; Assembler            ; 00:00:08     ; 1.0                     ; 4828 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:10     ; 1.5                     ; 5161 MB             ; 00:00:11                           ;
+; Total                ; 00:01:48     ; --                      ; --                  ; 00:03:32                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -115,6 +123,9 @@ refer to the applicable agreement for further details.
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
 ; Analysis & Synthesis ; EN402321         ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; EN402321         ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; EN402321         ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; EN402321         ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -122,6 +133,10 @@ refer to the applicable agreement for further details.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off flappy_birdv2 -c flappy_birdv2
+quartus_fit --read_settings_files=off --write_settings_files=off flappy_birdv2 -c flappy_birdv2
+quartus_asm --read_settings_files=off --write_settings_files=off flappy_birdv2 -c flappy_birdv2
+quartus_sta flappy_birdv2 -c flappy_birdv2
+quartus_eda --read_settings_files=on --write_settings_files=off flappy_birdv2 -c flappy_birdv2
 
 
 

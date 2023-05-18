@@ -1,8 +1,8 @@
 
 import cv2
  
-img = cv2.imread("Images\pipe_stripes.png") 
-f = open("MIF files\pipe.txt", "w")
+img = cv2.imread("Images\menu_btns.png") 
+f = open("MIF files\welcome_menu.txt", "w")
 
 
 f.write("-- Welcome Text Displaying Using MIF\n")

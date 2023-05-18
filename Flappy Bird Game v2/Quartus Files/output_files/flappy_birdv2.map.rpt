@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappy_birdv2
-Wed May 17 20:37:46 2023
+Thu May 18 14:02:44 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -13,17 +13,28 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis IP Cores Summary
-  9. State Machine - |flappy_birdv2|MOUSE:inst4|mouse_state
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
  10. State Machine - |flappy_birdv2|GAME_CONTROLLER:inst8|STATE
- 11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Parameter Settings for User Entity Instance: pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+ 11. State Machine - |flappy_birdv2|MOUSE:inst4|mouse_state
+ 12. User-Specified and Inferred Latches
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Source assignments for MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst|altsyncram:altsyncram_component|altsyncram_9934:auto_generated
+ 18. Source assignments for pipe:inst18|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component|altsyncram_0924:auto_generated
+ 19. Source assignments for pipe:inst19|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component|altsyncram_0924:auto_generated
+ 20. Source assignments for pipe:inst17|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component|altsyncram_0924:auto_generated
+ 21. Parameter Settings for User Entity Instance: pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i
+ 22. Parameter Settings for User Entity Instance: MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst|altsyncram:altsyncram_component
+ 23. Parameter Settings for User Entity Instance: pipe:inst18|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component
+ 24. Parameter Settings for User Entity Instance: pipe:inst19|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component
+ 25. Parameter Settings for User Entity Instance: pipe:inst17|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component
+ 26. altsyncram Parameter Settings by Entity Instance
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
 
 
 
@@ -49,16 +60,16 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed May 17 20:37:46 2023           ;
+; Analysis & Synthesis Status     ; Successful - Thu May 18 14:02:43 2023           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappy_birdv2                                   ;
 ; Top-level Entity Name           ; flappy_birdv2                                   ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 383                                             ;
-; Total pins                      ; 48                                              ;
+; Total registers                 ; 351                                             ;
+; Total pins                      ; 47                                              ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 0                                               ;
+; Total block memory bits         ; 162,000                                         ;
 ; Total DSP Blocks                ; 0                                               ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
@@ -179,113 +190,143 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                      ;
-+-------------------------------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                      ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                       ; Library ;
-+-------------------------------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------+---------+
-; ../VHDL files/random_number_checker.vhd               ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/random_number_checker.vhd ;         ;
-; ../../Project Interim Demo/VHDL FILES/BCD_to_7Seg.vhd ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Project Interim Demo/VHDL FILES/BCD_to_7Seg.vhd          ;         ;
-; ../VHDL files/vga_sync_4bit.vhd                       ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd         ;         ;
-; ../VHDL files/pipe_final.vhd                          ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd            ;         ;
-; ../VHDL files/mouse.vhd                               ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd                 ;         ;
-; ../VHDL files/game_metrics.vhd                        ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_metrics.vhd          ;         ;
-; ../VHDL files/game_controller.vhd                     ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_controller.vhd       ;         ;
-; ../VHDL files/color_pixel.vhd                         ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/color_pixel.vhd           ;         ;
-; ../VHDL files/collision.vhd                           ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/collision.vhd             ;         ;
-; ../VHDL files/bird_final.vhd                          ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/bird_final.vhd            ;         ;
-; DE0_CV_golden_top.v                                   ; yes             ; User Verilog HDL File              ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/DE0_CV_golden_top.v    ;         ;
-; pll/pll.vhd                                           ; yes             ; User Wizard-Generated File         ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/pll/pll.vhd            ; pll     ;
-; pll/pll/pll_0002.v                                    ; yes             ; User Verilog HDL File              ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/pll/pll/pll_0002.v     ; pll     ;
-; flappy_birdv2.bdf                                     ; yes             ; User Block Diagram/Schematic File  ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/flappy_birdv2.bdf      ;         ;
-; ../vhdl files/lfsr_placeholder.vhd                    ; yes             ; User VHDL File                     ; H:/Documents/305 REPO/305/Flappy Bird Game v2/vhdl files/lfsr_placeholder.vhd      ;         ;
-; altera_pll.v                                          ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                     ;         ;
-+-------------------------------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                             ;
++------------------------------------------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                       ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                         ; Library ;
++------------------------------------------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------+---------+
+; ../VHDL files/menu.vhd                                                 ; yes             ; User VHDL File                         ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/menu.vhd                    ;         ;
+; ../MIF files/pipe.mif                                                  ; yes             ; User Memory Initialization File        ; H:/Documents/305 REPO/305/Flappy Bird Game v2/MIF files/pipe.mif                     ;         ;
+; ../VHDL files/random_number_checker.vhd                                ; yes             ; User VHDL File                         ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/random_number_checker.vhd   ;         ;
+; ../../Project Interim Demo/VHDL FILES/BCD_to_7Seg.vhd                  ; yes             ; User VHDL File                         ; H:/Documents/305 REPO/305/Project Interim Demo/VHDL FILES/BCD_to_7Seg.vhd            ;         ;
+; ../VHDL files/vga_sync_4bit.vhd                                        ; yes             ; User VHDL File                         ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd           ;         ;
+; ../VHDL files/pipe_final.vhd                                           ; yes             ; User VHDL File                         ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd              ;         ;
+; ../VHDL files/mouse.vhd                                                ; yes             ; User VHDL File                         ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd                   ;         ;
+; ../VHDL files/game_metrics.vhd                                         ; yes             ; User VHDL File                         ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_metrics.vhd            ;         ;
+; ../VHDL files/game_controller.vhd                                      ; yes             ; User VHDL File                         ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_controller.vhd         ;         ;
+; ../VHDL files/color_pixel.vhd                                          ; yes             ; User VHDL File                         ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/color_pixel.vhd             ;         ;
+; ../VHDL files/bird_final.vhd                                           ; yes             ; User VHDL File                         ; H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/bird_final.vhd              ;         ;
+; DE0_CV_golden_top.v                                                    ; yes             ; User Verilog HDL File                  ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/DE0_CV_golden_top.v      ;         ;
+; pll/pll.vhd                                                            ; yes             ; User Wizard-Generated File             ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/pll/pll.vhd              ; pll     ;
+; pll/pll/pll_0002.v                                                     ; yes             ; User Verilog HDL File                  ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/pll/pll/pll_0002.v       ; pll     ;
+; flappy_birdv2.bdf                                                      ; yes             ; User Block Diagram/Schematic File      ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/flappy_birdv2.bdf        ;         ;
+; rom/pipe_rom.vhd                                                       ; yes             ; User Wizard-Generated File             ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/pipe_rom.vhd         ;         ;
+; ../vhdl files/lfsr_placeholder.vhd                                     ; yes             ; User VHDL File                         ; H:/Documents/305 REPO/305/Flappy Bird Game v2/vhdl files/lfsr_placeholder.vhd        ;         ;
+; rom/welcome_menu_rom.vhd                                               ; yes             ; User Wizard-Generated File             ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/welcome_menu_rom.vhd ;         ;
+; altera_pll.v                                                           ; yes             ; Megafunction                           ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                       ;         ;
+; altsyncram.tdf                                                         ; yes             ; Megafunction                           ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf                     ;         ;
+; stratix_ram_block.inc                                                  ; yes             ; Megafunction                           ; c:/intelfpga/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc              ;         ;
+; lpm_mux.inc                                                            ; yes             ; Megafunction                           ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_mux.inc                        ;         ;
+; lpm_decode.inc                                                         ; yes             ; Megafunction                           ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_decode.inc                     ;         ;
+; aglobal181.inc                                                         ; yes             ; Megafunction                           ; c:/intelfpga/18.1/quartus/libraries/megafunctions/aglobal181.inc                     ;         ;
+; a_rdenreg.inc                                                          ; yes             ; Megafunction                           ; c:/intelfpga/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                      ;         ;
+; altrom.inc                                                             ; yes             ; Megafunction                           ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altrom.inc                         ;         ;
+; altram.inc                                                             ; yes             ; Megafunction                           ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altram.inc                         ;         ;
+; altdpram.inc                                                           ; yes             ; Megafunction                           ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altdpram.inc                       ;         ;
+; db/altsyncram_9934.tdf                                                 ; yes             ; Auto-Generated Megafunction            ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/db/altsyncram_9934.tdf   ;         ;
+; /documents/305 repo/305/flappy bird game v2/mif files/welcome_menu.mif ; yes             ; Auto-Found Memory Initialization File  ; /documents/305 repo/305/flappy bird game v2/mif files/welcome_menu.mif               ;         ;
+; db/altsyncram_0924.tdf                                                 ; yes             ; Auto-Generated Megafunction            ; H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/db/altsyncram_0924.tdf   ;         ;
++------------------------------------------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                ;
-+---------------------------------------------+------------------------------+
-; Resource                                    ; Usage                        ;
-+---------------------------------------------+------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 526                          ;
-;                                             ;                              ;
-; Combinational ALUT usage for logic          ; 889                          ;
-;     -- 7 input functions                    ; 1                            ;
-;     -- 6 input functions                    ; 155                          ;
-;     -- 5 input functions                    ; 84                           ;
-;     -- 4 input functions                    ; 111                          ;
-;     -- <=3 input functions                  ; 538                          ;
-;                                             ;                              ;
-; Dedicated logic registers                   ; 383                          ;
-;                                             ;                              ;
-; I/O pins                                    ; 48                           ;
-;                                             ;                              ;
-; Total DSP Blocks                            ; 0                            ;
-;                                             ;                              ;
-; Total PLLs                                  ; 1                            ;
-;     -- PLLs                                 ; 1                            ;
-;                                             ;                              ;
-; Maximum fan-out node                        ; VGA_SYNC:inst5|vert_sync_out ;
-; Maximum fan-out                             ; 235                          ;
-; Total fan-out                               ; 4397                         ;
-; Average fan-out                             ; 3.21                         ;
-+---------------------------------------------+------------------------------+
++-----------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                     ;
++---------------------------------------------+-------------------------------------------------------------------+
+; Resource                                    ; Usage                                                             ;
++---------------------------------------------+-------------------------------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 757                                                               ;
+;                                             ;                                                                   ;
+; Combinational ALUT usage for logic          ; 1176                                                              ;
+;     -- 7 input functions                    ; 9                                                                 ;
+;     -- 6 input functions                    ; 322                                                               ;
+;     -- 5 input functions                    ; 113                                                               ;
+;     -- 4 input functions                    ; 110                                                               ;
+;     -- <=3 input functions                  ; 622                                                               ;
+;                                             ;                                                                   ;
+; Dedicated logic registers                   ; 351                                                               ;
+;                                             ;                                                                   ;
+; I/O pins                                    ; 47                                                                ;
+; Total MLAB memory bits                      ; 0                                                                 ;
+; Total block memory bits                     ; 162000                                                            ;
+;                                             ;                                                                   ;
+; Total DSP Blocks                            ; 0                                                                 ;
+;                                             ;                                                                   ;
+; Total PLLs                                  ; 1                                                                 ;
+;     -- PLLs                                 ; 1                                                                 ;
+;                                             ;                                                                   ;
+; Maximum fan-out node                        ; pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
+; Maximum fan-out                             ; 566                                                               ;
+; Total fan-out                               ; 10410                                                             ;
+; Average fan-out                             ; 4.95                                                              ;
++---------------------------------------------+-------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                              ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+-----------------+--------------+
-; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                               ; Entity Name     ; Library Name ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+-----------------+--------------+
-; |flappy_birdv2                     ; 889 (0)             ; 383 (0)                   ; 0                 ; 0          ; 48   ; 0            ; |flappy_birdv2                                                    ; flappy_birdv2   ; work         ;
-;    |BCD_to_SevenSeg:inst29|        ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BCD_to_SevenSeg:inst29                             ; BCD_to_SevenSeg ; work         ;
-;    |BCD_to_SevenSeg:inst30|        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BCD_to_SevenSeg:inst30                             ; BCD_to_SevenSeg ; work         ;
-;    |BCD_to_SevenSeg:inst31|        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BCD_to_SevenSeg:inst31                             ; BCD_to_SevenSeg ; work         ;
-;    |BCD_to_SevenSeg:inst32|        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BCD_to_SevenSeg:inst32                             ; BCD_to_SevenSeg ; work         ;
-;    |BIRD:inst11|                   ; 229 (229)           ; 66 (66)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BIRD:inst11                                        ; BIRD            ; work         ;
-;    |CHECKER:inst27|                ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|CHECKER:inst27                                     ; CHECKER         ; work         ;
-;    |COLLISION:inst10|              ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|COLLISION:inst10                                   ; COLLISION       ; work         ;
-;    |COLOR_PIXEL:inst9|             ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|COLOR_PIXEL:inst9                                  ; COLOR_PIXEL     ; work         ;
-;    |GAME_CONTROLLER:inst8|         ; 11 (11)             ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|GAME_CONTROLLER:inst8                              ; GAME_CONTROLLER ; work         ;
-;    |GAME_METRICS:inst7|            ; 76 (76)             ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|GAME_METRICS:inst7                                 ; GAME_METRICS    ; work         ;
-;    |MOUSE:inst4|                   ; 47 (47)             ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|MOUSE:inst4                                        ; MOUSE           ; work         ;
-;    |VGA_SYNC:inst5|                ; 51 (51)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|VGA_SYNC:inst5                                     ; VGA_SYNC        ; work         ;
-;    |lfsr:inst23|                   ; 6 (6)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|lfsr:inst23                                        ; lfsr            ; work         ;
-;    |lfsr:inst24|                   ; 6 (6)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|lfsr:inst24                                        ; lfsr            ; work         ;
-;    |lfsr:inst26|                   ; 6 (6)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|lfsr:inst26                                        ; lfsr            ; work         ;
-;    |pipe:inst1|                    ; 136 (136)           ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst1                                         ; pipe            ; work         ;
-;    |pipe:inst2|                    ; 132 (132)           ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst2                                         ; pipe            ; work         ;
-;    |pipe:inst3|                    ; 142 (142)           ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst3                                         ; pipe            ; work         ;
-;    |pll:inst|                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pll:inst                                           ; pll             ; pll          ;
-;       |pll_0002:pll_inst|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pll:inst|pll_0002:pll_inst                         ; pll_0002        ; pll          ;
-;          |altera_pll:altera_pll_i| ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll      ; work         ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+-----------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                          ;
++------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                              ; Entity Name      ; Library Name ;
++------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
+; |flappy_birdv2                                 ; 1176 (0)            ; 351 (0)                   ; 162000            ; 0          ; 47   ; 0            ; |flappy_birdv2                                                                                                                   ; flappy_birdv2    ; work         ;
+;    |BCD_to_SevenSeg:inst29|                    ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BCD_to_SevenSeg:inst29                                                                                            ; BCD_to_SevenSeg  ; work         ;
+;    |BCD_to_SevenSeg:inst30|                    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BCD_to_SevenSeg:inst30                                                                                            ; BCD_to_SevenSeg  ; work         ;
+;    |BCD_to_SevenSeg:inst31|                    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BCD_to_SevenSeg:inst31                                                                                            ; BCD_to_SevenSeg  ; work         ;
+;    |BCD_to_SevenSeg:inst32|                    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BCD_to_SevenSeg:inst32                                                                                            ; BCD_to_SevenSeg  ; work         ;
+;    |BIRD:inst11|                               ; 243 (243)           ; 66 (66)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|BIRD:inst11                                                                                                       ; BIRD             ; work         ;
+;    |CHECKER:inst27|                            ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|CHECKER:inst27                                                                                                    ; CHECKER          ; work         ;
+;    |COLOR_PIXEL:inst6|                         ; 11 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|COLOR_PIXEL:inst6                                                                                                 ; COLOR_PIXEL      ; work         ;
+;    |GAME_CONTROLLER:inst8|                     ; 5 (5)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|GAME_CONTROLLER:inst8                                                                                             ; GAME_CONTROLLER  ; work         ;
+;    |GAME_METRICS:inst7|                        ; 33 (33)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|GAME_METRICS:inst7                                                                                                ; GAME_METRICS     ; work         ;
+;    |MENU:inst21|                               ; 130 (130)           ; 0 (0)                     ; 90000             ; 0          ; 0    ; 0            ; |flappy_birdv2|MENU:inst21                                                                                                       ; MENU             ; work         ;
+;       |welcome_menu_rom:welcome_menu_rom_inst| ; 0 (0)               ; 0 (0)                     ; 90000             ; 0          ; 0    ; 0            ; |flappy_birdv2|MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst                                                                ; welcome_menu_rom ; work         ;
+;          |altsyncram:altsyncram_component|     ; 0 (0)               ; 0 (0)                     ; 90000             ; 0          ; 0    ; 0            ; |flappy_birdv2|MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst|altsyncram:altsyncram_component                                ; altsyncram       ; work         ;
+;             |altsyncram_9934:auto_generated|   ; 0 (0)               ; 0 (0)                     ; 90000             ; 0          ; 0    ; 0            ; |flappy_birdv2|MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst|altsyncram:altsyncram_component|altsyncram_9934:auto_generated ; altsyncram_9934  ; work         ;
+;    |MOUSE:inst4|                               ; 47 (47)             ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|MOUSE:inst4                                                                                                       ; MOUSE            ; work         ;
+;    |VGA_SYNC:inst5|                            ; 56 (56)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|VGA_SYNC:inst5                                                                                                    ; VGA_SYNC         ; work         ;
+;    |lfsr:inst14|                               ; 6 (6)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|lfsr:inst14                                                                                                       ; lfsr             ; work         ;
+;    |lfsr:inst15|                               ; 6 (6)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|lfsr:inst15                                                                                                       ; lfsr             ; work         ;
+;    |lfsr:inst16|                               ; 6 (6)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|lfsr:inst16                                                                                                       ; lfsr             ; work         ;
+;    |pipe:inst17|                               ; 194 (194)           ; 33 (33)                   ; 24000             ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst17                                                                                                       ; pipe             ; work         ;
+;       |pipe_rom:pipe_rom_inst|                 ; 0 (0)               ; 0 (0)                     ; 24000             ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst17|pipe_rom:pipe_rom_inst                                                                                ; pipe_rom         ; work         ;
+;          |altsyncram:altsyncram_component|     ; 0 (0)               ; 0 (0)                     ; 24000             ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst17|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component                                                ; altsyncram       ; work         ;
+;             |altsyncram_0924:auto_generated|   ; 0 (0)               ; 0 (0)                     ; 24000             ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst17|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component|altsyncram_0924:auto_generated                 ; altsyncram_0924  ; work         ;
+;    |pipe:inst18|                               ; 214 (214)           ; 33 (33)                   ; 24000             ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst18                                                                                                       ; pipe             ; work         ;
+;       |pipe_rom:pipe_rom_inst|                 ; 0 (0)               ; 0 (0)                     ; 24000             ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst18|pipe_rom:pipe_rom_inst                                                                                ; pipe_rom         ; work         ;
+;          |altsyncram:altsyncram_component|     ; 0 (0)               ; 0 (0)                     ; 24000             ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst18|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component                                                ; altsyncram       ; work         ;
+;             |altsyncram_0924:auto_generated|   ; 0 (0)               ; 0 (0)                     ; 24000             ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst18|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component|altsyncram_0924:auto_generated                 ; altsyncram_0924  ; work         ;
+;    |pipe:inst19|                               ; 197 (197)           ; 33 (33)                   ; 24000             ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst19                                                                                                       ; pipe             ; work         ;
+;       |pipe_rom:pipe_rom_inst|                 ; 0 (0)               ; 0 (0)                     ; 24000             ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst19|pipe_rom:pipe_rom_inst                                                                                ; pipe_rom         ; work         ;
+;          |altsyncram:altsyncram_component|     ; 0 (0)               ; 0 (0)                     ; 24000             ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst19|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component                                                ; altsyncram       ; work         ;
+;             |altsyncram_0924:auto_generated|   ; 0 (0)               ; 0 (0)                     ; 24000             ; 0          ; 0    ; 0            ; |flappy_birdv2|pipe:inst19|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component|altsyncram_0924:auto_generated                 ; altsyncram_0924  ; work         ;
+;    |pll:inst|                                  ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pll:inst                                                                                                          ; pll              ; pll          ;
+;       |pll_0002:pll_inst|                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pll:inst|pll_0002:pll_inst                                                                                        ; pll_0002         ; pll          ;
+;          |altera_pll:altera_pll_i|             ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_birdv2|pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i                                                                ; altera_pll       ; work         ;
++------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                     ;
-+--------+--------------+---------+--------------+--------------+-------------------------+-----------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance         ; IP Include File ;
-+--------+--------------+---------+--------------+--------------+-------------------------+-----------------+
-; Altera ; altera_pll   ; 18.1    ; N/A          ; N/A          ; |flappy_birdv2|pll:inst ; pll/pll.vhd     ;
-+--------+--------------+---------+--------------+--------------+-------------------------+-----------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                  ;
++------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+----------------------------------+
+; Name                                                                                                                         ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF                              ;
++------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+----------------------------------+
+; MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst|altsyncram:altsyncram_component|altsyncram_9934:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 300          ; 300          ; --           ; --           ; 90000 ; ../../MIF files/welcome_menu.mif ;
+; pipe:inst17|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component|altsyncram_0924:auto_generated|ALTSYNCRAM                 ; AUTO ; ROM  ; 400          ; 60           ; --           ; --           ; 24000 ; ../MIF files/pipe.mif            ;
+; pipe:inst18|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component|altsyncram_0924:auto_generated|ALTSYNCRAM                 ; AUTO ; ROM  ; 400          ; 60           ; --           ; --           ; 24000 ; ../MIF files/pipe.mif            ;
+; pipe:inst19|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component|altsyncram_0924:auto_generated|ALTSYNCRAM                 ; AUTO ; ROM  ; 400          ; 60           ; --           ; --           ; 24000 ; ../MIF files/pipe.mif            ;
++------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+----------------------------------+
 
 
-Encoding Type:  One-Hot
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |flappy_birdv2|MOUSE:inst4|mouse_state                                                                                                                                                  ;
-+-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
-; Name                          ; mouse_state.INPUT_PACKETS ; mouse_state.WAIT_CMD_ACK ; mouse_state.WAIT_OUTPUT_READY ; mouse_state.LOAD_COMMAND2 ; mouse_state.LOAD_COMMAND ; mouse_state.INHIBIT_TRANS ;
-+-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
-; mouse_state.INHIBIT_TRANS     ; 0                         ; 0                        ; 0                             ; 0                         ; 0                        ; 0                         ;
-; mouse_state.LOAD_COMMAND      ; 0                         ; 0                        ; 0                             ; 0                         ; 1                        ; 1                         ;
-; mouse_state.LOAD_COMMAND2     ; 0                         ; 0                        ; 0                             ; 1                         ; 0                        ; 1                         ;
-; mouse_state.WAIT_OUTPUT_READY ; 0                         ; 0                        ; 1                             ; 0                         ; 0                        ; 1                         ;
-; mouse_state.WAIT_CMD_ACK      ; 0                         ; 1                        ; 0                             ; 0                         ; 0                        ; 1                         ;
-; mouse_state.INPUT_PACKETS     ; 1                         ; 0                        ; 0                             ; 0                         ; 0                        ; 1                         ;
-+-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                        ;
++--------+--------------+---------+--------------+--------------+-------------------------------------------------------------------+--------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                   ; IP Include File          ;
++--------+--------------+---------+--------------+--------------+-------------------------------------------------------------------+--------------------------+
+; Altera ; altera_pll   ; 18.1    ; N/A          ; N/A          ; |flappy_birdv2|pll:inst                                           ; pll/pll.vhd              ;
+; Altera ; ROM: 1-PORT  ; 18.1    ; N/A          ; N/A          ; |flappy_birdv2|pipe:inst17|pipe_rom:pipe_rom_inst                 ; rom/pipe_rom.vhd         ;
+; Altera ; ROM: 1-PORT  ; 18.1    ; N/A          ; N/A          ; |flappy_birdv2|pipe:inst18|pipe_rom:pipe_rom_inst                 ; rom/pipe_rom.vhd         ;
+; Altera ; ROM: 1-PORT  ; 18.1    ; N/A          ; N/A          ; |flappy_birdv2|pipe:inst19|pipe_rom:pipe_rom_inst                 ; rom/pipe_rom.vhd         ;
+; Altera ; ROM: 1-PORT  ; 18.1    ; N/A          ; N/A          ; |flappy_birdv2|MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst ; rom/welcome_menu_rom.vhd ;
++--------+--------------+---------+--------------+--------------+-------------------------------------------------------------------+--------------------------+
 
 
 Encoding Type:  One-Hot
@@ -303,11 +344,64 @@ Encoding Type:  One-Hot
 +----------+----------+----------+----------+----------+----------+----------+
 
 
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |flappy_birdv2|MOUSE:inst4|mouse_state                                                                                                                                                  ;
++-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
+; Name                          ; mouse_state.INPUT_PACKETS ; mouse_state.WAIT_CMD_ACK ; mouse_state.WAIT_OUTPUT_READY ; mouse_state.LOAD_COMMAND2 ; mouse_state.LOAD_COMMAND ; mouse_state.INHIBIT_TRANS ;
++-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
+; mouse_state.INHIBIT_TRANS     ; 0                         ; 0                        ; 0                             ; 0                         ; 0                        ; 0                         ;
+; mouse_state.LOAD_COMMAND      ; 0                         ; 0                        ; 0                             ; 0                         ; 1                        ; 1                         ;
+; mouse_state.LOAD_COMMAND2     ; 0                         ; 0                        ; 0                             ; 1                         ; 0                        ; 1                         ;
+; mouse_state.WAIT_OUTPUT_READY ; 0                         ; 0                        ; 1                             ; 0                         ; 0                        ; 1                         ;
+; mouse_state.WAIT_CMD_ACK      ; 0                         ; 1                        ; 0                             ; 0                         ; 0                        ; 1                         ;
+; mouse_state.INPUT_PACKETS     ; 1                         ; 0                        ; 0                             ; 0                         ; 0                        ; 1                         ;
++-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                      ;
++-----------------------------------------------------+---------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal       ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------------+------------------------+
+; pipe:inst19|rom_address[0]                          ; pipe:inst19|is_pipe_on[0] ; yes                    ;
+; pipe:inst19|rom_address[1]                          ; pipe:inst19|is_pipe_on[0] ; yes                    ;
+; pipe:inst19|rom_address[2]                          ; pipe:inst19|is_pipe_on[0] ; yes                    ;
+; pipe:inst19|rom_address[3]                          ; pipe:inst19|is_pipe_on[0] ; yes                    ;
+; pipe:inst19|rom_address[4]                          ; pipe:inst19|is_pipe_on[0] ; yes                    ;
+; pipe:inst19|rom_address[5]                          ; pipe:inst19|is_pipe_on[0] ; yes                    ;
+; pipe:inst19|rom_address[6]                          ; pipe:inst19|is_pipe_on[0] ; yes                    ;
+; pipe:inst19|rom_address[7]                          ; pipe:inst19|is_pipe_on[0] ; yes                    ;
+; pipe:inst19|rom_address[8]                          ; pipe:inst19|is_pipe_on[0] ; yes                    ;
+; pipe:inst17|rom_address[0]                          ; pipe:inst17|is_pipe_on[0] ; yes                    ;
+; pipe:inst17|rom_address[1]                          ; pipe:inst17|is_pipe_on[0] ; yes                    ;
+; pipe:inst17|rom_address[2]                          ; pipe:inst17|is_pipe_on[0] ; yes                    ;
+; pipe:inst17|rom_address[3]                          ; pipe:inst17|is_pipe_on[0] ; yes                    ;
+; pipe:inst17|rom_address[4]                          ; pipe:inst17|is_pipe_on[0] ; yes                    ;
+; pipe:inst17|rom_address[5]                          ; pipe:inst17|is_pipe_on[0] ; yes                    ;
+; pipe:inst17|rom_address[6]                          ; pipe:inst17|is_pipe_on[0] ; yes                    ;
+; pipe:inst17|rom_address[7]                          ; pipe:inst17|is_pipe_on[0] ; yes                    ;
+; pipe:inst17|rom_address[8]                          ; pipe:inst17|is_pipe_on[0] ; yes                    ;
+; pipe:inst18|rom_address[0]                          ; pipe:inst18|is_pipe_on[0] ; yes                    ;
+; pipe:inst18|rom_address[1]                          ; pipe:inst18|is_pipe_on[0] ; yes                    ;
+; pipe:inst18|rom_address[2]                          ; pipe:inst18|is_pipe_on[0] ; yes                    ;
+; pipe:inst18|rom_address[3]                          ; pipe:inst18|is_pipe_on[0] ; yes                    ;
+; pipe:inst18|rom_address[4]                          ; pipe:inst18|is_pipe_on[0] ; yes                    ;
+; pipe:inst18|rom_address[5]                          ; pipe:inst18|is_pipe_on[0] ; yes                    ;
+; pipe:inst18|rom_address[6]                          ; pipe:inst18|is_pipe_on[0] ; yes                    ;
+; pipe:inst18|rom_address[7]                          ; pipe:inst18|is_pipe_on[0] ; yes                    ;
+; pipe:inst18|rom_address[8]                          ; pipe:inst18|is_pipe_on[0] ; yes                    ;
+; Number of user-specified and inferred latches = 27  ;                           ;                        ;
++-----------------------------------------------------+---------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
 +----------------------------------------------------------------------------------------------+
 ; Registers Removed During Synthesis                                                           ;
 +---------------------------------------------+------------------------------------------------+
 ; Register name                               ; Reason for Removal                             ;
 +---------------------------------------------+------------------------------------------------+
+; GAME_METRICS:inst7|LIVES[0..31]             ; Lost fanout                                    ;
 ; MOUSE:inst4|CHAROUT[4..7]                   ; Stuck at VCC due to stuck port data_in         ;
 ; MOUSE:inst4|CHAROUT[3]                      ; Stuck at GND due to stuck port data_in         ;
 ; MOUSE:inst4|CHAROUT[2]                      ; Stuck at VCC due to stuck port data_in         ;
@@ -317,7 +411,7 @@ Encoding Type:  One-Hot
 ; BIRD:inst11|\MOVE_BIRD:GRAVITY[10]          ; Stuck at GND due to stuck port data_in         ;
 ; VGA_SYNC:inst5|pixel_row[9]                 ; Stuck at GND due to stuck port data_in         ;
 ; GAME_CONTROLLER:inst8|STATE.S5              ; Lost fanout                                    ;
-; Total Number of Removed Registers = 42      ;                                                ;
+; Total Number of Removed Registers = 74      ;                                                ;
 +---------------------------------------------+------------------------------------------------+
 
 
@@ -326,12 +420,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 383   ;
-; Number of registers using Synchronous Clear  ; 210   ;
+; Total registers                              ; 351   ;
+; Number of registers using Synchronous Clear  ; 108   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 16    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 304   ;
+; Number of registers using Clock Enable       ; 176   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -341,45 +435,43 @@ Encoding Type:  One-Hot
 +-----------------------------------------+---------+
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
-; lfsr:inst23|r_lfsr[6]                   ; 10      ;
-; lfsr:inst23|r_lfsr[8]                   ; 9       ;
-; lfsr:inst24|r_lfsr[2]                   ; 9       ;
-; lfsr:inst24|r_lfsr[1]                   ; 10      ;
-; lfsr:inst26|r_lfsr[3]                   ; 10      ;
-; lfsr:inst26|r_lfsr[4]                   ; 10      ;
-; pipe:inst1|pipe_end_x[0]                ; 4       ;
-; pipe:inst1|pipe_end_x[31]               ; 4       ;
-; lfsr:inst23|r_lfsr[3]                   ; 14      ;
-; lfsr:inst23|r_lfsr[4]                   ; 16      ;
-; pipe:inst3|pipe_end_x[0]                ; 4       ;
-; pipe:inst3|pipe_end_x[31]               ; 4       ;
-; lfsr:inst26|r_lfsr[1]                   ; 15      ;
-; lfsr:inst26|r_lfsr[2]                   ; 14      ;
-; pipe:inst2|pipe_end_x[0]                ; 4       ;
-; pipe:inst2|pipe_end_x[31]               ; 4       ;
-; lfsr:inst24|r_lfsr[6]                   ; 15      ;
-; lfsr:inst24|r_lfsr[8]                   ; 15      ;
+; lfsr:inst14|r_lfsr[6]                   ; 10      ;
+; lfsr:inst14|r_lfsr[8]                   ; 10      ;
+; lfsr:inst15|r_lfsr[1]                   ; 10      ;
+; lfsr:inst15|r_lfsr[2]                   ; 10      ;
+; lfsr:inst16|r_lfsr[3]                   ; 10      ;
+; lfsr:inst16|r_lfsr[4]                   ; 10      ;
+; lfsr:inst15|r_lfsr[3]                   ; 1       ;
+; lfsr:inst16|r_lfsr[6]                   ; 1       ;
+; pipe:inst18|hold_x[0]                   ; 5       ;
+; lfsr:inst14|r_lfsr[4]                   ; 18      ;
+; lfsr:inst14|r_lfsr[3]                   ; 16      ;
+; pipe:inst18|hold_x[31]                  ; 4       ;
+; pipe:inst19|hold_x[0]                   ; 5       ;
+; lfsr:inst15|r_lfsr[6]                   ; 16      ;
+; lfsr:inst15|r_lfsr[8]                   ; 18      ;
+; pipe:inst19|hold_x[31]                  ; 4       ;
+; pipe:inst17|hold_x[0]                   ; 5       ;
+; lfsr:inst16|r_lfsr[1]                   ; 18      ;
+; lfsr:inst16|r_lfsr[2]                   ; 18      ;
+; pipe:inst17|hold_x[31]                  ; 4       ;
 ; BIRD:inst11|BIRD_Y[2]                   ; 6       ;
 ; BIRD:inst11|BIRD_Y[0]                   ; 4       ;
-; BIRD:inst11|BIRD_Y[5]                   ; 7       ;
+; BIRD:inst11|BIRD_Y[5]                   ; 6       ;
 ; BIRD:inst11|BIRD_Y[4]                   ; 5       ;
 ; BIRD:inst11|BIRD_Y[7]                   ; 7       ;
 ; BIRD:inst11|BIRD_Y[6]                   ; 7       ;
-; GAME_METRICS:inst7|LIVES[0]             ; 2       ;
-; GAME_METRICS:inst7|LIVES[1]             ; 2       ;
-; lfsr:inst24|r_lfsr[3]                   ; 1       ;
-; lfsr:inst26|r_lfsr[6]                   ; 1       ;
-; lfsr:inst23|r_lfsr[1]                   ; 1       ;
-; lfsr:inst24|r_lfsr[4]                   ; 1       ;
-; lfsr:inst23|r_lfsr[2]                   ; 1       ;
-; lfsr:inst26|r_lfsr[8]                   ; 1       ;
+; lfsr:inst14|r_lfsr[1]                   ; 1       ;
+; lfsr:inst15|r_lfsr[4]                   ; 1       ;
+; lfsr:inst14|r_lfsr[2]                   ; 1       ;
+; lfsr:inst16|r_lfsr[8]                   ; 1       ;
 ; MOUSE:inst4|send_char                   ; 3       ;
 ; MOUSE:inst4|SHIFTOUT[3]                 ; 1       ;
 ; MOUSE:inst4|SHIFTOUT[5]                 ; 1       ;
 ; MOUSE:inst4|SHIFTOUT[6]                 ; 1       ;
 ; MOUSE:inst4|SHIFTOUT[7]                 ; 1       ;
 ; MOUSE:inst4|SHIFTOUT[8]                 ; 1       ;
-; Total number of inverted registers = 38 ;         ;
+; Total number of inverted registers = 36 ;         ;
 +-----------------------------------------+---------+
 
 
@@ -388,22 +480,64 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappy_birdv2|VGA_SYNC:inst5|blue_out[1]             ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |flappy_birdv2|GAME_METRICS:inst7|LIVES[3]            ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_birdv2|VGA_SYNC:inst5|v_count[6]              ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |flappy_birdv2|GAME_METRICS:inst7|SCORE[26]           ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappy_birdv2|VGA_SYNC:inst5|blue_out[2]             ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_birdv2|GAME_METRICS:inst7|LIVES[0]            ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |flappy_birdv2|pipe:inst1|pipe_speed[2]               ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst29|SevenSeg_out[4] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_birdv2|VGA_SYNC:inst5|v_count[1]              ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |flappy_birdv2|GAME_METRICS:inst7|SCORE[12]           ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |flappy_birdv2|pipe:inst18|hold_x[3]                  ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |flappy_birdv2|pipe:inst19|hold_x[16]                 ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |flappy_birdv2|pipe:inst17|hold_x[11]                 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |flappy_birdv2|VGA_SYNC:inst5|blue_out[3]             ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_birdv2|VGA_SYNC:inst5|red_out[2]              ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; Yes        ; |flappy_birdv2|VGA_SYNC:inst5|blue_out[2]             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_birdv2|pipe:inst18|hold_x[0]                  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_birdv2|pipe:inst19|hold_x[31]                 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_birdv2|pipe:inst17|hold_x[31]                 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |flappy_birdv2|COLOR_PIXEL:inst6|color                ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |flappy_birdv2|pipe:inst18|pipe_speed[0]              ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst29|SevenSeg_out[6] ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst30|SevenSeg_out[4] ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst31|SevenSeg_out[6] ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst31|SevenSeg_out[4] ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst32|SevenSeg_out[6] ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst29|SevenSeg_out[3] ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst30|SevenSeg_out[3] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst29|SevenSeg_out[5] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst30|SevenSeg_out[5] ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst31|SevenSeg_out[5] ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_birdv2|BCD_to_SevenSeg:inst32|SevenSeg_out[5] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst|altsyncram:altsyncram_component|altsyncram_9934:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                         ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                          ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for pipe:inst18|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component|altsyncram_0924:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                         ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                          ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for pipe:inst19|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component|altsyncram_0924:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                         ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                          ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for pipe:inst17|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component|altsyncram_0924:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                         ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                          ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------+
@@ -653,42 +787,342 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------------------+---------------------------------------------------------+
+; Parameter Name                     ; Value                            ; Type                                                    ;
++------------------------------------+----------------------------------+---------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS                  ; ON                               ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS               ; OFF                              ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS                ; ON                               ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                              ; IGNORE_CASCADE                                          ;
+; WIDTH_BYTEENA                      ; 1                                ; Untyped                                                 ;
+; OPERATION_MODE                     ; ROM                              ; Untyped                                                 ;
+; WIDTH_A                            ; 300                              ; Signed Integer                                          ;
+; WIDTHAD_A                          ; 9                                ; Signed Integer                                          ;
+; NUMWORDS_A                         ; 300                              ; Signed Integer                                          ;
+; OUTDATA_REG_A                      ; CLOCK0                           ; Untyped                                                 ;
+; ADDRESS_ACLR_A                     ; NONE                             ; Untyped                                                 ;
+; OUTDATA_ACLR_A                     ; NONE                             ; Untyped                                                 ;
+; WRCONTROL_ACLR_A                   ; NONE                             ; Untyped                                                 ;
+; INDATA_ACLR_A                      ; NONE                             ; Untyped                                                 ;
+; BYTEENA_ACLR_A                     ; NONE                             ; Untyped                                                 ;
+; WIDTH_B                            ; 1                                ; Signed Integer                                          ;
+; WIDTHAD_B                          ; 1                                ; Signed Integer                                          ;
+; NUMWORDS_B                         ; 0                                ; Signed Integer                                          ;
+; INDATA_REG_B                       ; CLOCK1                           ; Untyped                                                 ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                           ; Untyped                                                 ;
+; RDCONTROL_REG_B                    ; CLOCK1                           ; Untyped                                                 ;
+; ADDRESS_REG_B                      ; CLOCK1                           ; Untyped                                                 ;
+; OUTDATA_REG_B                      ; UNREGISTERED                     ; Untyped                                                 ;
+; BYTEENA_REG_B                      ; CLOCK1                           ; Untyped                                                 ;
+; INDATA_ACLR_B                      ; NONE                             ; Untyped                                                 ;
+; WRCONTROL_ACLR_B                   ; NONE                             ; Untyped                                                 ;
+; ADDRESS_ACLR_B                     ; NONE                             ; Untyped                                                 ;
+; OUTDATA_ACLR_B                     ; NONE                             ; Untyped                                                 ;
+; RDCONTROL_ACLR_B                   ; NONE                             ; Untyped                                                 ;
+; BYTEENA_ACLR_B                     ; NONE                             ; Untyped                                                 ;
+; WIDTH_BYTEENA_A                    ; 1                                ; Signed Integer                                          ;
+; WIDTH_BYTEENA_B                    ; 1                                ; Signed Integer                                          ;
+; RAM_BLOCK_TYPE                     ; AUTO                             ; Untyped                                                 ;
+; BYTE_SIZE                          ; 8                                ; Signed Integer                                          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                        ; Untyped                                                 ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ             ; Untyped                                                 ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ             ; Untyped                                                 ;
+; INIT_FILE                          ; ../../MIF files/welcome_menu.mif ; Untyped                                                 ;
+; INIT_FILE_LAYOUT                   ; PORT_A                           ; Untyped                                                 ;
+; MAXIMUM_DEPTH                      ; 0                                ; Signed Integer                                          ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                           ; Untyped                                                 ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                           ; Untyped                                                 ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                           ; Untyped                                                 ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                           ; Untyped                                                 ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                  ; Untyped                                                 ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                  ; Untyped                                                 ;
+; ENABLE_ECC                         ; FALSE                            ; Untyped                                                 ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                            ; Untyped                                                 ;
+; WIDTH_ECCSTATUS                    ; 3                                ; Signed Integer                                          ;
+; DEVICE_FAMILY                      ; Cyclone V                        ; Untyped                                                 ;
+; CBXI_PARAMETER                     ; altsyncram_9934                  ; Untyped                                                 ;
++------------------------------------+----------------------------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipe:inst18|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component ;
++------------------------------------+-----------------------+----------------------------------------------------+
+; Parameter Name                     ; Value                 ; Type                                               ;
++------------------------------------+-----------------------+----------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                     ; Untyped                                            ;
+; AUTO_CARRY_CHAINS                  ; ON                    ; AUTO_CARRY                                         ;
+; IGNORE_CARRY_BUFFERS               ; OFF                   ; IGNORE_CARRY                                       ;
+; AUTO_CASCADE_CHAINS                ; ON                    ; AUTO_CASCADE                                       ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                   ; IGNORE_CASCADE                                     ;
+; WIDTH_BYTEENA                      ; 1                     ; Untyped                                            ;
+; OPERATION_MODE                     ; ROM                   ; Untyped                                            ;
+; WIDTH_A                            ; 60                    ; Signed Integer                                     ;
+; WIDTHAD_A                          ; 9                     ; Signed Integer                                     ;
+; NUMWORDS_A                         ; 400                   ; Signed Integer                                     ;
+; OUTDATA_REG_A                      ; CLOCK0                ; Untyped                                            ;
+; ADDRESS_ACLR_A                     ; NONE                  ; Untyped                                            ;
+; OUTDATA_ACLR_A                     ; NONE                  ; Untyped                                            ;
+; WRCONTROL_ACLR_A                   ; NONE                  ; Untyped                                            ;
+; INDATA_ACLR_A                      ; NONE                  ; Untyped                                            ;
+; BYTEENA_ACLR_A                     ; NONE                  ; Untyped                                            ;
+; WIDTH_B                            ; 1                     ; Signed Integer                                     ;
+; WIDTHAD_B                          ; 1                     ; Signed Integer                                     ;
+; NUMWORDS_B                         ; 0                     ; Signed Integer                                     ;
+; INDATA_REG_B                       ; CLOCK1                ; Untyped                                            ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                ; Untyped                                            ;
+; RDCONTROL_REG_B                    ; CLOCK1                ; Untyped                                            ;
+; ADDRESS_REG_B                      ; CLOCK1                ; Untyped                                            ;
+; OUTDATA_REG_B                      ; UNREGISTERED          ; Untyped                                            ;
+; BYTEENA_REG_B                      ; CLOCK1                ; Untyped                                            ;
+; INDATA_ACLR_B                      ; NONE                  ; Untyped                                            ;
+; WRCONTROL_ACLR_B                   ; NONE                  ; Untyped                                            ;
+; ADDRESS_ACLR_B                     ; NONE                  ; Untyped                                            ;
+; OUTDATA_ACLR_B                     ; NONE                  ; Untyped                                            ;
+; RDCONTROL_ACLR_B                   ; NONE                  ; Untyped                                            ;
+; BYTEENA_ACLR_B                     ; NONE                  ; Untyped                                            ;
+; WIDTH_BYTEENA_A                    ; 1                     ; Signed Integer                                     ;
+; WIDTH_BYTEENA_B                    ; 1                     ; Signed Integer                                     ;
+; RAM_BLOCK_TYPE                     ; AUTO                  ; Untyped                                            ;
+; BYTE_SIZE                          ; 8                     ; Signed Integer                                     ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE             ; Untyped                                            ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ  ; Untyped                                            ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ  ; Untyped                                            ;
+; INIT_FILE                          ; ../MIF files/pipe.mif ; Untyped                                            ;
+; INIT_FILE_LAYOUT                   ; PORT_A                ; Untyped                                            ;
+; MAXIMUM_DEPTH                      ; 0                     ; Signed Integer                                     ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                ; Untyped                                            ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                ; Untyped                                            ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                ; Untyped                                            ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                ; Untyped                                            ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN       ; Untyped                                            ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN       ; Untyped                                            ;
+; ENABLE_ECC                         ; FALSE                 ; Untyped                                            ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                 ; Untyped                                            ;
+; WIDTH_ECCSTATUS                    ; 3                     ; Signed Integer                                     ;
+; DEVICE_FAMILY                      ; Cyclone V             ; Untyped                                            ;
+; CBXI_PARAMETER                     ; altsyncram_0924       ; Untyped                                            ;
++------------------------------------+-----------------------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipe:inst19|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component ;
++------------------------------------+-----------------------+----------------------------------------------------+
+; Parameter Name                     ; Value                 ; Type                                               ;
++------------------------------------+-----------------------+----------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                     ; Untyped                                            ;
+; AUTO_CARRY_CHAINS                  ; ON                    ; AUTO_CARRY                                         ;
+; IGNORE_CARRY_BUFFERS               ; OFF                   ; IGNORE_CARRY                                       ;
+; AUTO_CASCADE_CHAINS                ; ON                    ; AUTO_CASCADE                                       ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                   ; IGNORE_CASCADE                                     ;
+; WIDTH_BYTEENA                      ; 1                     ; Untyped                                            ;
+; OPERATION_MODE                     ; ROM                   ; Untyped                                            ;
+; WIDTH_A                            ; 60                    ; Signed Integer                                     ;
+; WIDTHAD_A                          ; 9                     ; Signed Integer                                     ;
+; NUMWORDS_A                         ; 400                   ; Signed Integer                                     ;
+; OUTDATA_REG_A                      ; CLOCK0                ; Untyped                                            ;
+; ADDRESS_ACLR_A                     ; NONE                  ; Untyped                                            ;
+; OUTDATA_ACLR_A                     ; NONE                  ; Untyped                                            ;
+; WRCONTROL_ACLR_A                   ; NONE                  ; Untyped                                            ;
+; INDATA_ACLR_A                      ; NONE                  ; Untyped                                            ;
+; BYTEENA_ACLR_A                     ; NONE                  ; Untyped                                            ;
+; WIDTH_B                            ; 1                     ; Signed Integer                                     ;
+; WIDTHAD_B                          ; 1                     ; Signed Integer                                     ;
+; NUMWORDS_B                         ; 0                     ; Signed Integer                                     ;
+; INDATA_REG_B                       ; CLOCK1                ; Untyped                                            ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                ; Untyped                                            ;
+; RDCONTROL_REG_B                    ; CLOCK1                ; Untyped                                            ;
+; ADDRESS_REG_B                      ; CLOCK1                ; Untyped                                            ;
+; OUTDATA_REG_B                      ; UNREGISTERED          ; Untyped                                            ;
+; BYTEENA_REG_B                      ; CLOCK1                ; Untyped                                            ;
+; INDATA_ACLR_B                      ; NONE                  ; Untyped                                            ;
+; WRCONTROL_ACLR_B                   ; NONE                  ; Untyped                                            ;
+; ADDRESS_ACLR_B                     ; NONE                  ; Untyped                                            ;
+; OUTDATA_ACLR_B                     ; NONE                  ; Untyped                                            ;
+; RDCONTROL_ACLR_B                   ; NONE                  ; Untyped                                            ;
+; BYTEENA_ACLR_B                     ; NONE                  ; Untyped                                            ;
+; WIDTH_BYTEENA_A                    ; 1                     ; Signed Integer                                     ;
+; WIDTH_BYTEENA_B                    ; 1                     ; Signed Integer                                     ;
+; RAM_BLOCK_TYPE                     ; AUTO                  ; Untyped                                            ;
+; BYTE_SIZE                          ; 8                     ; Signed Integer                                     ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE             ; Untyped                                            ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ  ; Untyped                                            ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ  ; Untyped                                            ;
+; INIT_FILE                          ; ../MIF files/pipe.mif ; Untyped                                            ;
+; INIT_FILE_LAYOUT                   ; PORT_A                ; Untyped                                            ;
+; MAXIMUM_DEPTH                      ; 0                     ; Signed Integer                                     ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                ; Untyped                                            ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                ; Untyped                                            ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                ; Untyped                                            ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                ; Untyped                                            ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN       ; Untyped                                            ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN       ; Untyped                                            ;
+; ENABLE_ECC                         ; FALSE                 ; Untyped                                            ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                 ; Untyped                                            ;
+; WIDTH_ECCSTATUS                    ; 3                     ; Signed Integer                                     ;
+; DEVICE_FAMILY                      ; Cyclone V             ; Untyped                                            ;
+; CBXI_PARAMETER                     ; altsyncram_0924       ; Untyped                                            ;
++------------------------------------+-----------------------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipe:inst17|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component ;
++------------------------------------+-----------------------+----------------------------------------------------+
+; Parameter Name                     ; Value                 ; Type                                               ;
++------------------------------------+-----------------------+----------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                     ; Untyped                                            ;
+; AUTO_CARRY_CHAINS                  ; ON                    ; AUTO_CARRY                                         ;
+; IGNORE_CARRY_BUFFERS               ; OFF                   ; IGNORE_CARRY                                       ;
+; AUTO_CASCADE_CHAINS                ; ON                    ; AUTO_CASCADE                                       ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                   ; IGNORE_CASCADE                                     ;
+; WIDTH_BYTEENA                      ; 1                     ; Untyped                                            ;
+; OPERATION_MODE                     ; ROM                   ; Untyped                                            ;
+; WIDTH_A                            ; 60                    ; Signed Integer                                     ;
+; WIDTHAD_A                          ; 9                     ; Signed Integer                                     ;
+; NUMWORDS_A                         ; 400                   ; Signed Integer                                     ;
+; OUTDATA_REG_A                      ; CLOCK0                ; Untyped                                            ;
+; ADDRESS_ACLR_A                     ; NONE                  ; Untyped                                            ;
+; OUTDATA_ACLR_A                     ; NONE                  ; Untyped                                            ;
+; WRCONTROL_ACLR_A                   ; NONE                  ; Untyped                                            ;
+; INDATA_ACLR_A                      ; NONE                  ; Untyped                                            ;
+; BYTEENA_ACLR_A                     ; NONE                  ; Untyped                                            ;
+; WIDTH_B                            ; 1                     ; Signed Integer                                     ;
+; WIDTHAD_B                          ; 1                     ; Signed Integer                                     ;
+; NUMWORDS_B                         ; 0                     ; Signed Integer                                     ;
+; INDATA_REG_B                       ; CLOCK1                ; Untyped                                            ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                ; Untyped                                            ;
+; RDCONTROL_REG_B                    ; CLOCK1                ; Untyped                                            ;
+; ADDRESS_REG_B                      ; CLOCK1                ; Untyped                                            ;
+; OUTDATA_REG_B                      ; UNREGISTERED          ; Untyped                                            ;
+; BYTEENA_REG_B                      ; CLOCK1                ; Untyped                                            ;
+; INDATA_ACLR_B                      ; NONE                  ; Untyped                                            ;
+; WRCONTROL_ACLR_B                   ; NONE                  ; Untyped                                            ;
+; ADDRESS_ACLR_B                     ; NONE                  ; Untyped                                            ;
+; OUTDATA_ACLR_B                     ; NONE                  ; Untyped                                            ;
+; RDCONTROL_ACLR_B                   ; NONE                  ; Untyped                                            ;
+; BYTEENA_ACLR_B                     ; NONE                  ; Untyped                                            ;
+; WIDTH_BYTEENA_A                    ; 1                     ; Signed Integer                                     ;
+; WIDTH_BYTEENA_B                    ; 1                     ; Signed Integer                                     ;
+; RAM_BLOCK_TYPE                     ; AUTO                  ; Untyped                                            ;
+; BYTE_SIZE                          ; 8                     ; Signed Integer                                     ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE             ; Untyped                                            ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ  ; Untyped                                            ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ  ; Untyped                                            ;
+; INIT_FILE                          ; ../MIF files/pipe.mif ; Untyped                                            ;
+; INIT_FILE_LAYOUT                   ; PORT_A                ; Untyped                                            ;
+; MAXIMUM_DEPTH                      ; 0                     ; Signed Integer                                     ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                ; Untyped                                            ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                ; Untyped                                            ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                ; Untyped                                            ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                ; Untyped                                            ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN       ; Untyped                                            ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN       ; Untyped                                            ;
+; ENABLE_ECC                         ; FALSE                 ; Untyped                                            ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                 ; Untyped                                            ;
+; WIDTH_ECCSTATUS                    ; 3                     ; Signed Integer                                     ;
+; DEVICE_FAMILY                      ; Cyclone V             ; Untyped                                            ;
+; CBXI_PARAMETER                     ; altsyncram_0924       ; Untyped                                            ;
++------------------------------------+-----------------------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                               ;
++-------------------------------------------+------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                              ;
++-------------------------------------------+------------------------------------------------------------------------------------+
+; Number of entity instances                ; 4                                                                                  ;
+; Entity Instance                           ; MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                                ;
+;     -- WIDTH_A                            ; 300                                                                                ;
+;     -- NUMWORDS_A                         ; 300                                                                                ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                                             ;
+;     -- WIDTH_B                            ; 1                                                                                  ;
+;     -- NUMWORDS_B                         ; 0                                                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                             ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                          ;
+; Entity Instance                           ; pipe:inst18|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component                 ;
+;     -- OPERATION_MODE                     ; ROM                                                                                ;
+;     -- WIDTH_A                            ; 60                                                                                 ;
+;     -- NUMWORDS_A                         ; 400                                                                                ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                                             ;
+;     -- WIDTH_B                            ; 1                                                                                  ;
+;     -- NUMWORDS_B                         ; 0                                                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                             ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                          ;
+; Entity Instance                           ; pipe:inst19|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component                 ;
+;     -- OPERATION_MODE                     ; ROM                                                                                ;
+;     -- WIDTH_A                            ; 60                                                                                 ;
+;     -- NUMWORDS_A                         ; 400                                                                                ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                                             ;
+;     -- WIDTH_B                            ; 1                                                                                  ;
+;     -- NUMWORDS_B                         ; 0                                                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                             ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                          ;
+; Entity Instance                           ; pipe:inst17|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component                 ;
+;     -- OPERATION_MODE                     ; ROM                                                                                ;
+;     -- WIDTH_A                            ; 60                                                                                 ;
+;     -- NUMWORDS_A                         ; 400                                                                                ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                                             ;
+;     -- WIDTH_B                            ; 1                                                                                  ;
+;     -- NUMWORDS_B                         ; 0                                                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                             ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                          ;
++-------------------------------------------+------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 383                         ;
+; arriav_ff             ; 351                         ;
 ;     CLR               ; 1                           ;
-;     ENA               ; 89                          ;
+;     ENA               ; 63                          ;
 ;     ENA CLR           ; 15                          ;
-;     ENA SCLR          ; 200                         ;
+;     ENA SCLR          ; 98                          ;
 ;     SCLR              ; 10                          ;
-;     plain             ; 68                          ;
+;     plain             ; 164                         ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 894                         ;
-;     arith             ; 429                         ;
+; arriav_lcell_comb     ; 1181                        ;
+;     arith             ; 409                         ;
 ;         0 data inputs ; 6                           ;
-;         1 data inputs ; 330                         ;
-;         2 data inputs ; 9                           ;
-;         3 data inputs ; 42                          ;
+;         1 data inputs ; 310                         ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 45                          ;
 ;         4 data inputs ; 33                          ;
 ;         5 data inputs ; 9                           ;
-;     extend            ; 1                           ;
-;         7 data inputs ; 1                           ;
-;     normal            ; 464                         ;
+;     extend            ; 9                           ;
+;         7 data inputs ; 9                           ;
+;     normal            ; 745                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 24                          ;
-;         2 data inputs ; 95                          ;
-;         3 data inputs ; 36                          ;
-;         4 data inputs ; 78                          ;
-;         5 data inputs ; 75                          ;
-;         6 data inputs ; 155                         ;
-; boundary_port         ; 48                          ;
+;         2 data inputs ; 57                          ;
+;         3 data inputs ; 160                         ;
+;         4 data inputs ; 77                          ;
+;         5 data inputs ; 104                         ;
+;         6 data inputs ; 322                         ;
+;     shared            ; 18                          ;
+;         2 data inputs ; 18                          ;
+; boundary_port         ; 47                          ;
 ; generic_pll           ; 1                           ;
+; stratixv_ram_block    ; 480                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 8.80                        ;
-; Average LUT depth     ; 5.31                        ;
+; Max LUT depth         ; 8.60                        ;
+; Average LUT depth     ; 5.80                        ;
 +-----------------------+-----------------------------+
 
 
@@ -697,7 +1131,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -707,10 +1141,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Wed May 17 20:37:30 2023
+    Info: Processing started: Thu May 18 14:02:26 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappy_birdv2 -c flappy_birdv2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/flappy bird game v2/vhdl files/menu.vhd
+    Info (12022): Found design unit 1: MENU-BEHAV File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/menu.vhd Line: 14
+    Info (12023): Found entity 1: MENU File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/menu.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/flappy bird game v2/vhdl files/random_number_checker.vhd
     Info (12022): Found design unit 1: CHECKER-BEHAV File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/random_number_checker.vhd Line: 9
     Info (12023): Found entity 1: CHECKER File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/random_number_checker.vhd Line: 4
@@ -721,7 +1158,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file /docume
     Info (12022): Found design unit 1: VGA_SYNC-a File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 16
     Info (12023): Found entity 1: VGA_SYNC File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/flappy bird game v2/vhdl files/pipe_final.vhd
-    Info (12022): Found design unit 1: pipe-behav File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 14
+    Info (12022): Found design unit 1: pipe-behav File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 16
     Info (12023): Found entity 1: pipe File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/flappy bird game v2/vhdl files/mouse.vhd
     Info (12022): Found design unit 1: MOUSE-behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd Line: 18
@@ -733,7 +1170,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file /docume
     Info (12022): Found design unit 1: GAME_CONTROLLER-BEHAV File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_controller.vhd Line: 10
     Info (12023): Found entity 1: GAME_CONTROLLER File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/game_controller.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/flappy bird game v2/vhdl files/color_pixel.vhd
-    Info (12022): Found design unit 1: COLOR_PIXEL-BEHAV File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/color_pixel.vhd Line: 12
+    Info (12022): Found design unit 1: COLOR_PIXEL-BEHAV File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/color_pixel.vhd Line: 13
     Info (12023): Found entity 1: COLOR_PIXEL File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/color_pixel.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/flappy bird game v2/vhdl files/collision.vhd
     Info (12022): Found design unit 1: COLLISION-BEHAV File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/collision.vhd Line: 10
@@ -754,16 +1191,18 @@ Info (12021): Found 2 design units, including 1 entities, in source file rom/pip
     Info (12022): Found design unit 1: pipe_rom-SYN File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/pipe_rom.vhd Line: 52
     Info (12023): Found entity 1: pipe_rom File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/pipe_rom.vhd Line: 42
 Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 repo/305/flappy bird game v2/vhdl files/lfsr_placeholder.vhd
-    Info (12022): Found design unit 1: lfsr-behaviour File: H:/Documents/305 REPO/305/Flappy Bird Game v2/vhdl files/lfsr_placeholder.vhd Line: 10
-    Info (12023): Found entity 1: lfsr File: H:/Documents/305 REPO/305/Flappy Bird Game v2/vhdl files/lfsr_placeholder.vhd Line: 5
+    Info (12022): Found design unit 1: lfsr-behaviour File: H:/Documents/305 REPO/305/Flappy Bird Game v2/vhdl files/lfsr_placeholder.vhd Line: 14
+    Info (12023): Found entity 1: lfsr File: H:/Documents/305 REPO/305/Flappy Bird Game v2/vhdl files/lfsr_placeholder.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file rom/welcome_menu_rom.vhd
+    Info (12022): Found design unit 1: welcome_menu_rom-SYN File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/welcome_menu_rom.vhd Line: 52
+    Info (12023): Found entity 1: welcome_menu_rom File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/welcome_menu_rom.vhd Line: 42
 Info (12127): Elaborating entity "flappy_birdv2" for the top level hierarchy
 Warning (275089): Not all bits in bus "pipe_random2[8..0]" are used
 Warning (275080): Converted elements in bus name "pipe_random2" using legacy naming rules. Make any assignments on the new names, not on the original names.
-    Warning (275081): Converted element name(s) from "pipe_random2[8..6]" to "pipe_random28..6"
-    Warning (275081): Converted element name(s) from "pipe_random2[2..0]" to "pipe_random22..0"
     Warning (275081): Converted element name(s) from "pipe_random2[2..0]" to "pipe_random22..0"
     Warning (275081): Converted element name(s) from "pipe_random2[8..6]" to "pipe_random28..6"
     Warning (275081): Converted element name(s) from "pipe_random2[2..0]" to "pipe_random22..0"
+    Warning (275081): Converted element name(s) from "pipe_random2[8..6]" to "pipe_random28..6"
 Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:inst5"
 Info (12128): Elaborating entity "pll" for hierarchy "pll:inst"
 Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:inst|pll_0002:pll_inst" File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/pll/pll.vhd Line: 32
@@ -831,45 +1270,204 @@ Info (12133): Instantiated megafunction "pll:inst|pll_0002:pll_inst|altera_pll:a
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "COLOR_PIXEL" for hierarchy "COLOR_PIXEL:inst9"
-Info (12128): Elaborating entity "pipe" for hierarchy "pipe:inst1"
-Warning (10540): VHDL Signal Declaration warning at pipe_final.vhd(27): used explicit default value for signal "gap_array" because signal was never assigned a value File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 27
-Warning (10540): VHDL Signal Declaration warning at pipe_final.vhd(28): used explicit default value for signal "pipe_endpos_array" because signal was never assigned a value File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 28
-Warning (10492): VHDL Process Statement warning at pipe_final.vhd(52): signal "state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 52
-Warning (10492): VHDL Process Statement warning at pipe_final.vhd(67): signal "state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 67
-Info (12128): Elaborating entity "CHECKER" for hierarchy "CHECKER:inst27"
-Info (12128): Elaborating entity "lfsr" for hierarchy "lfsr:inst23"
-Info (12128): Elaborating entity "GAME_METRICS" for hierarchy "GAME_METRICS:inst7"
-Info (12128): Elaborating entity "GAME_CONTROLLER" for hierarchy "GAME_CONTROLLER:inst8"
+Info (12128): Elaborating entity "MENU" for hierarchy "MENU:inst21"
+Info (12128): Elaborating entity "welcome_menu_rom" for hierarchy "MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst" File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/menu.vhd Line: 39
+Info (12128): Elaborating entity "altsyncram" for hierarchy "MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst|altsyncram:altsyncram_component" File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/welcome_menu_rom.vhd Line: 59
+Info (12130): Elaborated megafunction instantiation "MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst|altsyncram:altsyncram_component" File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/welcome_menu_rom.vhd Line: 59
+Info (12133): Instantiated megafunction "MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst|altsyncram:altsyncram_component" with the following parameter: File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/welcome_menu_rom.vhd Line: 59
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "../../MIF files/welcome_menu.mif"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "300"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "300"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "9"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_9934.tdf
+    Info (12023): Found entity 1: altsyncram_9934 File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/db/altsyncram_9934.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_9934" for hierarchy "MENU:inst21|welcome_menu_rom:welcome_menu_rom_inst|altsyncram:altsyncram_component|altsyncram_9934:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "COLOR_PIXEL" for hierarchy "COLOR_PIXEL:inst6"
+Info (12128): Elaborating entity "BIRD" for hierarchy "BIRD:inst11"
 Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:inst4"
 Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd Line: 151
 Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd Line: 155
 Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd Line: 156
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd Line: 157
-Info (12128): Elaborating entity "COLLISION" for hierarchy "COLLISION:inst10"
-Info (12128): Elaborating entity "BIRD" for hierarchy "BIRD:inst11"
+Info (12128): Elaborating entity "GAME_CONTROLLER" for hierarchy "GAME_CONTROLLER:inst8"
+Info (12128): Elaborating entity "GAME_METRICS" for hierarchy "GAME_METRICS:inst7"
+Info (12128): Elaborating entity "pipe" for hierarchy "pipe:inst18"
+Warning (10540): VHDL Signal Declaration warning at pipe_final.vhd(30): used explicit default value for signal "gap_array" because signal was never assigned a value File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 30
+Warning (10492): VHDL Process Statement warning at pipe_final.vhd(76): signal "state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 76
+Warning (10492): VHDL Process Statement warning at pipe_final.vhd(92): signal "state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 92
+Info (10041): Inferred latch for "rom_address[0]" at pipe_final.vhd(62) File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+Info (10041): Inferred latch for "rom_address[1]" at pipe_final.vhd(62) File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+Info (10041): Inferred latch for "rom_address[2]" at pipe_final.vhd(62) File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+Info (10041): Inferred latch for "rom_address[3]" at pipe_final.vhd(62) File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+Info (10041): Inferred latch for "rom_address[4]" at pipe_final.vhd(62) File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+Info (10041): Inferred latch for "rom_address[5]" at pipe_final.vhd(62) File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+Info (10041): Inferred latch for "rom_address[6]" at pipe_final.vhd(62) File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+Info (10041): Inferred latch for "rom_address[7]" at pipe_final.vhd(62) File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+Info (10041): Inferred latch for "rom_address[8]" at pipe_final.vhd(62) File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+Info (12128): Elaborating entity "pipe_rom" for hierarchy "pipe:inst18|pipe_rom:pipe_rom_inst" File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 50
+Info (12128): Elaborating entity "altsyncram" for hierarchy "pipe:inst18|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component" File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/pipe_rom.vhd Line: 59
+Info (12130): Elaborated megafunction instantiation "pipe:inst18|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component" File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/pipe_rom.vhd Line: 59
+Info (12133): Instantiated megafunction "pipe:inst18|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component" with the following parameter: File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/rom/pipe_rom.vhd Line: 59
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "../MIF files/pipe.mif"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "400"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "60"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "9"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_0924.tdf
+    Info (12023): Found entity 1: altsyncram_0924 File: H:/Documents/305 REPO/305/Flappy Bird Game v2/Quartus Files/db/altsyncram_0924.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_0924" for hierarchy "pipe:inst18|pipe_rom:pipe_rom_inst|altsyncram:altsyncram_component|altsyncram_0924:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "CHECKER" for hierarchy "CHECKER:inst27"
+Info (12128): Elaborating entity "lfsr" for hierarchy "lfsr:inst14"
 Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:inst29"
+Warning (13012): Latch pipe:inst19|rom_address[3] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[3] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst19|rom_address[4] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[3] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst19|rom_address[5] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[5] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst19|rom_address[6] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[6] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst19|rom_address[7] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[7] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst19|rom_address[8] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[8] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst17|rom_address[3] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[3] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst17|rom_address[4] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[3] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst17|rom_address[5] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[5] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst17|rom_address[6] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[6] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst17|rom_address[7] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[7] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst17|rom_address[8] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[8] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst18|rom_address[3] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[3] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst18|rom_address[4] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[3] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst18|rom_address[5] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[5] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst18|rom_address[6] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[6] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst18|rom_address[7] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[7] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
+Warning (13012): Latch pipe:inst18|rom_address[8] has unsafe behavior File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/pipe_final.vhd Line: 62
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst5|pixel_row[8] File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/vga_sync_4bit.vhd Line: 99
 Info (13000): Registers with preset signals will power-up high File: H:/Documents/305 REPO/305/Flappy Bird Game v2/VHDL files/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX0[1]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (17049): 33 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Info (21057): Implemented 1003 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1769 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 43 output pins
+    Info (21059): Implemented 42 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 954 logic cells
+    Info (21061): Implemented 1241 logic cells
+    Info (21064): Implemented 480 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 4898 megabytes
-    Info: Processing ended: Wed May 17 20:37:46 2023
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:19
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 54 warnings
+    Info: Peak virtual memory: 4948 megabytes
+    Info: Processing ended: Thu May 18 14:02:44 2023
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:21
 
 

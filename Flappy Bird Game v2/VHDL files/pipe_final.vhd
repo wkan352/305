@@ -4,11 +4,13 @@ USE  IEEE.STD_LOGIC_SIGNED.all;
 USE IEEE.NUMERIC_STD.ALL;
 
 entity pipe is
-	port ( 	vert_sync : std_logic;
-		state, pipe_end_index, gap_ypos_index : in std_logic_vector(2 downto 0);	
+	port ( 	vert_sync, clk : in std_logic;
+		state, gap_ypos_index : in std_logic_vector(2 downto 0);	
 		score : in integer;
-		pixel_row, pixel_col : in std_logic_vector(9 downto 0);
-		is_pipe, is_pipe_passed : out std_logic);
+		
+		pixel_row, pixel_col, pipe_end_x: in std_logic_vector(9 downto 0);
+		is_pipe_on : out std_logic_vector(1 downto 0);
+		is_pipe_passed : out std_logic);
 end entity pipe;
 
 architecture behav of pipe is
@@ -20,58 +22,84 @@ architecture behav of pipe is
 	
 	Signal row : integer;
 	Signal col : integer;
+	signal hold_x : integer;
 	
-	Signal pipe_speed : integer := 6;
+	Signal pipe_speed : integer := 1;
 	
 	type valid_pos is array (0 to 7) of integer;
-	signal gap_array : valid_pos := (189, 247, 228, 207, 193, 289, 198, 221);
-	signal pipe_endpos_array : valid_pos := (215, 315, 415, 515, 615, 715, 815, 915);
+	signal gap_array : valid_pos := (0,70,90,120,140,185,210,290);
 
-	Signal pipe_end_x : integer;
 	Signal gap_ypos : integer;
 	
+	signal is_pipe : std_logic;
+	signal rom_address : STD_LOGIC_VECTOR (8 DOWNTO 0);
+	signal rom_data : STD_LOGIC_VECTOR (59 DOWNTO 0);
+	
+	component pipe_rom IS
+	PORT
+	(
+		address		: IN STD_LOGIC_VECTOR (8 DOWNTO 0);
+		clock		: IN STD_LOGIC  := '1';
+		q		: OUT STD_LOGIC_VECTOR (59 DOWNTO 0)
+	);
+END component pipe_rom;
+
+	
 begin
+	
+	pipe_rom_inst : pipe_rom PORT MAP (
+		address	 => rom_address,
+		clock	 => clk,
+		q	 => rom_data
+	);
 
 	-- Conversions
 	row <= to_integer(unsigned(pixel_row));
 	col <= to_integer(unsigned(pixel_col));
 
 	gap_ypos <= gap_array(to_integer(unsigned(gap_ypos_index)));
+	
+	rom_address <= std_logic_vector(to_unsigned((row - pipe_start_y), rom_address'length)) when is_pipe='1';
 
 	is_pipe <= '1' when (  ((row >= pipe_start_y and row <= gap_ypos) or 
 				(row >= gap_height + gap_ypos and row <= pipe_end_y)) and
-				(col <= pipe_end_x and col >= pipe_end_x - pipe_width) and
+				(col <= hold_x and col >= hold_x - pipe_width) and
 				state /= "000") else '0';
+	
+	is_pipe_on <= 	"00" when is_pipe = '0' else 
+						"01" when is_pipe = '1' and rom_data(col - (hold_x - pipe_width)) = '0' else
+						"11";
+						
 	
 	UPDATE_PIPE_SPEED: PROCESS(SCORE)
 	BEGIN
 		IF(STATE = "100") THEN
-			IF SCORE >= 8 THEN
+			IF SCORE <= 5 THEN
 				PIPE_SPEED <= 2;
-			ELSIF SCORE >= 14 THEN
+			ELSIF SCORE <= 20 THEN
 				PIPE_SPEED <= 3;
 			ELSE
 				PIPE_SPEED <= 4;
 			END IF;
 		ELSE
-			PIPE_SPEED <= 6;
+			PIPE_SPEED <= 2;
 		END IF;	
 
 	END PROCESS UPDATE_PIPE_SPEED;
+	
 	MOVE_PIPES: PROCESS(VERT_SYNC)
 	BEGIN
 		IF (RISING_EDGE(VERT_SYNC) AND (STATE = "011" OR STATE = "100")) THEN
 			
-			IF(pipe_end_x <= 0) THEN
+			IF(hold_x <= 0) THEN
 				is_pipe_passed <= '1';
-				pipe_end_x <=(699 - pipe_endpos_array(to_integer(unsigned(pipe_end_index)))) + pipe_endpos_array(to_integer(unsigned(pipe_end_index)));
+					hold_x <= 699;
 			ELSE
-				pipe_end_x <= pipe_end_x - pipe_speed;
+				hold_x <= hold_x - pipe_speed;
 				is_pipe_passed <= '0';
 			END IF;
-			
-		ELSIF RISING_EDGE(VERT_SYNC) THEN
-			pipe_end_x <= pipe_endpos_array(to_integer(unsigned(pipe_end_index)));
+		ELSIF (RISING_EDGE(VERT_SYNC)) THEN
+			hold_x <= to_integer(unsigned(pipe_end_x));
 		END IF;
 	END PROCESS MOVE_PIPES;
 

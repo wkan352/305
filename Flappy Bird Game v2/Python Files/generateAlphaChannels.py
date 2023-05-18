@@ -1,10 +1,10 @@
 
 import cv2
  
-img = cv2.imread("Images\pipe_stripes.png")
+img = cv2.imread("Images\menu_btns.png")
 
 for i in range(img.shape[0]):
-    f = open("Python Files\pipe_alpha_array.txt", "a")
+    f = open("MIF files\welcome_menu.txt", "a")
     newData = '"'
     for j in range(img.shape[1]):
 

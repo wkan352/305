@@ -479,6 +479,8 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VHDL_FILE "../VHDL files/menu.vhd"
+set_global_assignment -name MIF_FILE "../MIF files/pipe.mif"
 set_global_assignment -name VHDL_FILE "../VHDL files/random_number_checker.vhd"
 set_global_assignment -name VHDL_FILE "../../Project Interim Demo/VHDL FILES/BCD_to_7Seg.vhd"
 set_global_assignment -name VHDL_FILE "../VHDL files/vga_sync_4bit.vhd"
@@ -495,4 +497,5 @@ set_global_assignment -name SIP_FILE pll/pll.sip
 set_global_assignment -name BDF_FILE flappy_birdv2.bdf
 set_global_assignment -name QIP_FILE rom/pipe_rom.qip
 set_global_assignment -name VHDL_FILE "../vhdl files/lfsr_placeholder.vhd"
+set_global_assignment -name QIP_FILE rom/welcome_menu_rom.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

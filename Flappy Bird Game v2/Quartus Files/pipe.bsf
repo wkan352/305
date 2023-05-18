@@ -33,15 +33,15 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 48)
 		(input)
-		(text "state[2..0]" (rect 0 0 38 12)(font "Arial" ))
-		(text "state[2..0]" (rect 21 43 59 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
+		(text "clk" (rect 0 0 10 12)(font "Arial" ))
+		(text "clk" (rect 21 43 31 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
 	)
 	(port
 		(pt 0 64)
 		(input)
-		(text "pipe_end_index[2..0]" (rect 0 0 81 12)(font "Arial" ))
-		(text "pipe_end_index[2..0]" (rect 21 59 102 71)(font "Arial" ))
+		(text "state[2..0]" (rect 0 0 38 12)(font "Arial" ))
+		(text "state[2..0]" (rect 21 59 59 71)(font "Arial" ))
 		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
@@ -73,11 +73,18 @@ refer to the applicable agreement for further details.
 		(line (pt 0 128)(pt 16 128)(line_width 3))
 	)
 	(port
+		(pt 0 144)
+		(input)
+		(text "pipe_end_x[9..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "pipe_end_x[9..0]" (rect 21 139 87 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
 		(pt 248 32)
 		(output)
-		(text "is_pipe" (rect 0 0 27 12)(font "Arial" ))
-		(text "is_pipe" (rect 200 27 227 39)(font "Arial" ))
-		(line (pt 248 32)(pt 232 32)(line_width 1))
+		(text "is_pipe_on[1..0]" (rect 0 0 61 12)(font "Arial" ))
+		(text "is_pipe_on[1..0]" (rect 166 27 227 39)(font "Arial" ))
+		(line (pt 248 32)(pt 232 32)(line_width 3))
 	)
 	(port
 		(pt 248 48)

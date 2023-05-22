@@ -4,18 +4,17 @@ library IEEE;
 use IEEE.std_logic_1164.all;   
 
 entity t30_to_SevenSeg is
-     port (SevenSeg_out5, SevenSeg_out4, SevenSeg_out3, SevenSeg_out2, SevenSeg_out1: out std_logic_vector(6 downto 0));
+     port (SevenSeg_out5, SevenSeg_out4, SevenSeg_out3, SevenSeg_out2: out std_logic_vector(6 downto 0));
 end entity;
 
 architecture arc1 of t30_to_SevenSeg  is
 begin
-     	SevenSeg_out5   <=  "0000111";	-- t
-	SevenSeg_out4   <=  "0101111"; -- r
+     	SevenSeg_out5   <=  "0001100";	-- P
+	SevenSeg_out4   <=  "1000111"; -- L
 	SevenSeg_out3   <=  "0001000";-- A
-	SevenSeg_out2   <=  "1111001"; -- I
-	SevenSeg_out1   <=  "0101111";	-- n
+	SevenSeg_out2   <=  "0011001"; -- y
+
 
 						
 						
 end architecture arc1; 
-

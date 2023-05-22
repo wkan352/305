@@ -9,25 +9,14 @@ end entity;
 
 architecture arc1 of t30_to_SevenSeg  is
 begin
-     	SevenSeg_out5   <=  "0110000";	-- 3
-	SevenSeg_out4   <=  "1000000"; -- 0
-	SevenSeg_out3   <=  "0010010";-- 5
-	SevenSeg_out2   <=  "0000111"; -- t
-	SevenSeg_out1   <=  "0110000";	-- 3
-	SevenSeg_out0   <=  "1000000"; -- 0
+     	SevenSeg_out5   <=  "0000111";	-- t
+	SevenSeg_out4   <=  "1001110"; -- r
+	SevenSeg_out3   <=  "0100000";-- a
+	SevenSeg_out2   <=  "0000111"; -- i
+	SevenSeg_out1   <=  "0110000";	-- I
+	SevenSeg_out0   <=  "1001000";	-- n
+
 						
 						
 end architecture arc1; 
 
-Display for 'T'
-Begin
-	constant SEG_A : std_logic := '1';
-	constant SEG_B : std_logic := '0';
-	constant SEG_C : std_logic := '0';
-	constant SEG_D : std_logic := '1';
-	constant SEG_E : std_logic := '1';
-	constant SEG_F : std_logic := '1';
-	constant SEG_G : std_logic := '1';
-	constant SEG_DP : std_logic := '0';
-
- M
